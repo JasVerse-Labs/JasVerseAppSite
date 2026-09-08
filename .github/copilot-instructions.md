@@ -1,4 +1,4 @@
-# AGENTS.md
+# GitHub Copilot Instructions
 
 This repository belongs to JasVerse. **AI_MEMORY != JASVERSE_TRUTH.**
 

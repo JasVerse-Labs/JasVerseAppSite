@@ -1,4 +1,4 @@
-# AGENTS.md
+# CLAUDE.md
 
 This repository belongs to JasVerse. **AI_MEMORY != JASVERSE_TRUTH.**
 
