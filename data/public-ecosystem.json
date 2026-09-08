@@ -4,10 +4,25 @@
   "root": "JASVERSE",
   "products": ["byebyeprice", "maikore", "the-boss-key"],
   "shared_capabilities": [
-    "Constitutional governance (JasVerse-Labs/Costituzione)",
-    "Evidence-based operational registry",
-    "Multi-layer duplicate-detection (Pre-Creation Gate)",
-    "Cross-platform product distribution model"
+    {
+      "en": "Constitutional governance (JasVerse-Labs/Costituzione)",
+      "it": "Governance costituzionale (JasVerse-Labs/Costituzione)"
+    },
+    {
+      "en": "Evidence-based operational registry",
+      "it": "Registro operativo basato su evidenze"
+    },
+    {
+      "en": "Multi-layer duplicate-detection (Pre-Creation Gate)",
+      "it": "Rilevamento duplicati multilivello (Pre-Creation Gate)"
+    },
+    {
+      "en": "Cross-platform product distribution model",
+      "it": "Modello di distribuzione prodotto multipiattaforma"
+    }
   ],
-  "principle": "JASVERSE ENABLES PRODUCTS. PRODUCTS VALIDATE JASVERSE."
+  "principle": {
+    "en": "JASVERSE ENABLES PRODUCTS. PRODUCTS VALIDATE JASVERSE.",
+    "it": "JASVERSE ABILITA I PRODOTTI. I PRODOTTI VALIDANO JASVERSE."
+  }
 }

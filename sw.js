@@ -5,26 +5,34 @@
    CACHE FIRST. Bump CACHE_VERSION on any asset change to invalidate. */
 "use strict";
 
-var CACHE_VERSION = "jv-cache-v2";
+/* ASSET_VERSION must match scripts/set-asset-version.mjs's last run --
+   bump both together. This is what actually fixes the stale-mixed-release
+   bug: cache-first URLs now change identity on every release, so a
+   browser/CDN HTTP cache entry for the OLD url can never be served under
+   the NEW release's html, independent of this cache store's own
+   lifecycle. CACHE_VERSION bump (below) additionally purges this
+   service worker's own Cache API storage on activate. */
+var ASSET_VERSION = "20260908h";
+var CACHE_VERSION = "jv-cache-v3-" + ASSET_VERSION;
 var OFFLINE_URL = "/offline.html";
 
 var PRECACHE = [
   "/",
   "/offline.html",
-  "/assets/css/tokens.css",
-  "/assets/css/base.css",
-  "/assets/css/layout.css",
-  "/assets/css/components.css",
-  "/assets/css/pages.css",
-  "/assets/css/mobile.css",
-  "/assets/js/app.js",
-  "/assets/js/navigation.js",
-  "/assets/js/components.js",
-  "/assets/js/i18n.js",
-  "/assets/js/product-detail.js",
-  "/assets/js/pwa.js",
-  "/assets/i18n/en.json",
-  "/assets/i18n/it.json",
+  "/assets/css/tokens.css?v=" + ASSET_VERSION,
+  "/assets/css/base.css?v=" + ASSET_VERSION,
+  "/assets/css/layout.css?v=" + ASSET_VERSION,
+  "/assets/css/components.css?v=" + ASSET_VERSION,
+  "/assets/css/pages.css?v=" + ASSET_VERSION,
+  "/assets/css/mobile.css?v=" + ASSET_VERSION,
+  "/assets/js/app.js?v=" + ASSET_VERSION,
+  "/assets/js/navigation.js?v=" + ASSET_VERSION,
+  "/assets/js/components.js?v=" + ASSET_VERSION,
+  "/assets/js/i18n.js?v=" + ASSET_VERSION,
+  "/assets/js/product-detail.js?v=" + ASSET_VERSION,
+  "/assets/js/pwa.js?v=" + ASSET_VERSION,
+  "/assets/i18n/en.json?v=" + ASSET_VERSION,
+  "/assets/i18n/it.json?v=" + ASSET_VERSION,
   "/Stemma%20JasVerse.png",
 ];
 

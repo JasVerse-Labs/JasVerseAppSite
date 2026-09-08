@@ -6,7 +6,10 @@
       "id": "byebyeprice",
       "name": "ByeByePrice",
       "status": "BETA",
-      "summary": "Real price comparisons from real sellers. No fake sales, no manipulated discounts — an Italian anti-scam price comparison engine, powered by live data.",
+      "summary": {
+        "en": "Real price comparisons from real sellers. No fake sales, no manipulated discounts — an Italian anti-scam price comparison engine, powered by live data.",
+        "it": "Confronti di prezzo reali da venditori reali. Nessuna vendita finta, nessuno sconto manipolato — un motore di confronto prezzi anti-fregatura italiano, alimentato da dati reali."
+      },
       "public_url": "https://byebyeprice.com",
       "surfaces": {
         "web": "AVAILABLE",
@@ -20,7 +23,10 @@
       "id": "maikore",
       "name": "MaiKore",
       "status": "LAB",
-      "summary": "A voice-driven app-generation concept: speak a command, get a working application. Real, substantial code exists across the full stack — it is not yet a working product a user can rely on.",
+      "summary": {
+        "en": "A voice-driven app-generation concept: speak a command, get a working application. Real, substantial code exists across the full stack — it is not yet a working product a user can rely on.",
+        "it": "Un concetto di generazione di app tramite comando vocale: pronuncia un comando, ottieni un'applicazione funzionante. Esiste codice reale e sostanziale su tutto lo stack — non è ancora un prodotto funzionante su cui un utente possa fare affidamento."
+      },
       "public_url": null,
       "surfaces": null,
       "last_verified": "2026-09-08"
@@ -29,7 +35,10 @@
       "id": "the-boss-key",
       "name": "The Boss Key",
       "status": "LAB",
-      "summary": "A vision for one biometric key that replaces passwords and corporate logins, without Google or Facebook as gatekeepers. Currently a concept — no working implementation exists yet.",
+      "summary": {
+        "en": "A vision for one biometric key that replaces passwords and corporate logins, without Google or Facebook as gatekeepers. Currently a concept — no working implementation exists yet.",
+        "it": "Una visione per un'unica chiave biometrica che sostituisce password e login aziendali, senza Google o Facebook come intermediari. Attualmente è un concetto — non esiste ancora un'implementazione funzionante."
+      },
       "public_url": null,
       "surfaces": null,
       "last_verified": "2026-09-08"

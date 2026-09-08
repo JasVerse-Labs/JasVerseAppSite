@@ -25,6 +25,32 @@ const ALLOWED_EXPERIMENT_STATUS = new Set([
 
 const ALLOWED_CHANGELOG_FIELDS = new Set(["date", "title", "summary"]);
 
+/* Locales this site actually ships translations for -- must track
+   assets/js/i18n.js's LANGUAGES list. A translatable text field may be
+   either a plain (English-only) string, or a locale map keyed only from
+   this set, so a public data file can never carry a JSON key the site
+   has no locale for. */
+const KNOWN_LOCALES = new Set(["en", "it", "es", "fr", "pt-BR", "ru", "zh", "hi", "ar", "bn"]);
+
+function validateLocalizedField(file, value, path) {
+  if (value == null || typeof value === "string") return;
+  if (typeof value !== "object" || Array.isArray(value)) {
+    fail(file, `field "${path}" must be a string or a {locale: string} map`);
+    return;
+  }
+  if (!Object.prototype.hasOwnProperty.call(value, "en")) {
+    fail(file, `locale map "${path}" is missing a required "en" fallback`);
+  }
+  for (const [locale, text] of Object.entries(value)) {
+    if (!KNOWN_LOCALES.has(locale)) {
+      fail(file, `locale map "${path}" has unknown locale key "${locale}"`);
+    }
+    if (typeof text !== "string") {
+      fail(file, `locale map "${path}.${locale}" must be a string`);
+    }
+  }
+}
+
 const ALLOWED_ECOSYSTEM_FIELDS = new Set([
   "schema_version", "last_verified", "root", "products", "shared_capabilities", "principle",
 ]);
@@ -76,6 +102,7 @@ function validateProduct(file, product, idx) {
   if (!product.id || !product.name || !product.summary) {
     fail(file, `${label}: missing required field (id/name/summary)`);
   }
+  validateLocalizedField(file, product.summary, `${label}.summary`);
   if (!ALLOWED_STATUS.has(product.status)) {
     fail(file, `${label}: status "${product.status}" is not an allowed publication state`);
   }
@@ -106,21 +133,30 @@ function validateLabFile(file, data) {
     if (!ALLOWED_EXPERIMENT_STATUS.has(exp.status)) {
       fail(file, `${label}: status "${exp.status}" is not an allowed experiment state`);
     }
+    validateLocalizedField(file, exp.title, `${label}.title`);
+    validateLocalizedField(file, exp.summary, `${label}.summary`);
   });
 }
 
 function validateChangelogFile(file, data) {
   if (!Array.isArray(data.entries)) return fail(file, "missing entries[] array");
   data.entries.forEach((entry, i) => {
+    const label = `entries[${i}]`;
     for (const key of Object.keys(entry)) {
-      if (!ALLOWED_CHANGELOG_FIELDS.has(key)) fail(file, `entries[${i}]: unknown field "${key}"`);
+      if (!ALLOWED_CHANGELOG_FIELDS.has(key)) fail(file, `${label}: unknown field "${key}"`);
     }
+    validateLocalizedField(file, entry.title, `${label}.title`);
+    validateLocalizedField(file, entry.summary, `${label}.summary`);
   });
 }
 
 function validateEcosystemFile(file, data) {
   for (const key of Object.keys(data)) {
     if (!ALLOWED_ECOSYSTEM_FIELDS.has(key)) fail(file, `unknown field "${key}"`);
+  }
+  validateLocalizedField(file, data.principle, "principle");
+  if (Array.isArray(data.shared_capabilities)) {
+    data.shared_capabilities.forEach((c, i) => validateLocalizedField(file, c, `shared_capabilities[${i}]`));
   }
 }
 

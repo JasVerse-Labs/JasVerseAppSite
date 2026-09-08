@@ -8,6 +8,12 @@
 
   var STORAGE_KEY = "jasverse_locale";
 
+  /* Bumped by scripts/set-asset-version.mjs on every corrective/feature
+     release so a stale browser/CDN HTTP cache can never pair fresh HTML
+     with old dictionary data (the same cache-busting applied to
+     assets/css/*.css and assets/js/*.js references in every HTML page). */
+  var ASSET_VERSION = "20260908h";
+
   /* quality: "full" = every page translated end to end (EN/IT only, for
      now). "core" = nav + buttons + headings translated honestly; the
      rest of the page falls back to English rather than shipping partial
@@ -50,7 +56,7 @@
 
   function fetchDict(code) {
     if (dictionaries[code]) return Promise.resolve(dictionaries[code]);
-    return fetch("/assets/i18n/" + code + ".json")
+    return fetch("/assets/i18n/" + code + ".json?v=" + ASSET_VERSION)
       .then(function (r) { return r.ok ? r.json() : {}; })
       .then(function (data) { dictionaries[code] = data; return data; })
       .catch(function () { dictionaries[code] = {}; return {}; });
@@ -74,6 +80,13 @@
     scope.querySelectorAll("[data-i18n-aria-label]").forEach(function (el) {
       var value = t(el.getAttribute("data-i18n-aria-label"));
       if (value !== null) el.setAttribute("aria-label", value);
+    });
+    /* Author-controlled translation strings only (never user input) --
+       used for the handful of strings that need inline emphasis
+       (<strong>/<em>) that a plain textContent swap would strip. */
+    scope.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+      var value = t(el.getAttribute("data-i18n-html"));
+      if (value !== null) el.innerHTML = value;
     });
   }
 
