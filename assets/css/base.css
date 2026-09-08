@@ -1,0 +1,53 @@
+/* JasVerse — base/reset. Background gradient is the approved identity —
+   see docs/VISUAL_BASELINE.md. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  min-height: 100vh;
+  font-family: var(--jv-font);
+  background:
+    radial-gradient(circle at 50% 28%, rgba(0, 185, 255, 0.16), transparent 26%),
+    radial-gradient(circle at 50% 40%, rgba(255, 0, 90, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(255, 0, 90, 0.16), transparent 34%),
+    linear-gradient(180deg, var(--jv-bg-1) 0%, var(--jv-bg-2) 55%, var(--jv-bg-1) 100%);
+  color: var(--jv-text-primary);
+  overflow-x: hidden;
+}
+
+a { color: var(--jv-cyan); }
+a:hover { color: var(--jv-magenta); }
+
+h1, h2, h3 { font-weight: 700; letter-spacing: 0.02em; }
+
+img { max-width: 100%; height: auto; }
+
+/* Visible focus for keyboard users -- Part 27 accessibility */
+:focus-visible {
+  outline: 2px solid var(--jv-cyan);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--jv-bg-1);
+  color: var(--jv-cyan);
+  padding: 12px 20px;
+  border-radius: 0 0 var(--jv-radius-sm) 0;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  left: 0;
+}

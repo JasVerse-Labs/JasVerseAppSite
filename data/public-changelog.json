@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "last_verified": "2026-09-08",
+  "entries": [
+    {
+      "date": "2026-09-08",
+      "title": "JasVerse.com rebuilt as the public ecosystem front door",
+      "summary": "New Products, Lab, Ecosystem and Live pages; installable as an app (PWA); same visual identity."
+    },
+    {
+      "date": "2026-09-08",
+      "title": "ByeByePrice build now portable across operating systems",
+      "summary": "A build defect only visible on Linux was found and fixed, with an automated check added so it can't silently return."
+    }
+  ]
+}

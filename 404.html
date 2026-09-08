@@ -3,120 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
 <title>404 | JASVERSE®</title>
-
-<link rel="icon" type="image/png" href="Stemma%20JasVerse.png">
-
+<meta name="description" content="Page not found.">
+<link rel="icon" type="image/png" href="/assets/images/stemma-32.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#03050a">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/components.css">
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-
-    font-family:"Segoe UI",Arial,sans-serif;
-
-    background:
-    radial-gradient(circle at 50% 30%, rgba(0,185,255,.12), transparent 30%),
-    radial-gradient(circle at 50% 60%, rgba(255,0,90,.12), transparent 35%),
-    linear-gradient(180deg,#03050a 0%,#080910 60%,#03050a 100%);
-
-    color:white;
-}
-
-.container{
-    max-width:800px;
-    padding:40px;
-}
-
-.code{
-    font-size:8rem;
-    font-weight:900;
-    line-height:1;
-    color:#ff285c;
-    text-shadow:0 0 25px rgba(255,40,92,.4);
-}
-
-.title{
-    font-size:2rem;
-    margin-top:20px;
-    margin-bottom:10px;
-}
-
-.desc{
-    color:#bfc7d5;
-    line-height:1.7;
-    margin-bottom:30px;
-}
-
-.brand{
-    color:#00c8ff;
-    font-weight:700;
-}
-
-.button{
-    display:inline-block;
-
-    padding:16px 28px;
-
-    border:1px solid #ff285c;
-    border-radius:12px;
-
-    text-decoration:none;
-    color:white;
-
-    font-weight:700;
-
-    background:rgba(255,0,90,.08);
-
-    transition:.25s ease;
-}
-
-.button:hover{
-    background:rgba(255,0,90,.18);
-}
-
-.footer{
-    margin-top:40px;
-    color:#888;
-    font-size:.85rem;
-}
-
+  body { display:flex; justify-content:center; align-items:center; text-align:center; min-height:100vh; }
+  .container { max-width:640px; padding:40px; }
+  .code { font-size:6rem; font-weight:900; line-height:1; color:var(--jv-magenta); text-shadow:0 0 25px rgba(255,0,90,.4); }
+  .title { font-size:1.8rem; margin:20px 0 10px; }
+  .desc { color:var(--jv-text-muted); line-height:1.7; margin-bottom:30px; }
+  .brand { color:var(--jv-cyan); font-weight:700; }
 </style>
 </head>
-
 <body>
-
 <div class="container">
-
-<div class="code">404</div>
-
-<h1 class="title">Page Not Found</h1>
-
-<p class="desc">
-The page you are looking for does not exist or has been moved.
-<br><br>
-Welcome to <span class="brand">JASVERSE® — Powered by AIQX™</span>
-</p>
-
-<a class="button" href="https://jasverse.com">
-Return to Homepage
-</a>
-
-<div class="footer">
-JASVERSE® • Powered by AIQX™
+  <div class="code">404</div>
+  <h1 class="title">Page Not Found</h1>
+  <p class="desc">
+    The page you are looking for does not exist or has been moved.
+    <br><br>
+    Welcome to <span class="brand">JASVERSE® — Powered by AIQX™</span>
+  </p>
+  <a class="btn btn-primary" href="/">Return to Homepage</a>
 </div>
-
-</div>
-
 </body>
 </html>

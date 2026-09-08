@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+<title>Products | JASVERSE®</title>
+<meta name="description" content="Real JasVerse products, honestly labeled: live, beta, or lab-stage. No fake app-store links, no invented availability.">
+<link rel="canonical" href="https://jasverse.com/products/">
+<link rel="icon" type="image/png" href="/assets/images/stemma-32.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#03050a">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<link rel="stylesheet" href="/assets/css/mobile.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="jv-nav-root"></div>
+
+<main id="main">
+  <div class="container">
+    <div class="page-header">
+      <h1>Products</h1>
+      <p class="tagline">The public launcher for real JasVerse products — each one honestly labeled by what it actually is today.</p>
+    </div>
+
+    <div class="sections grid-3" id="products-grid" aria-live="polite"></div>
+    <p style="text-align:center; color:var(--jv-text-muted); font-size:0.85rem;" id="products-last-verified"></p>
+
+    <div class="card" style="margin-top:40px;">
+      <h2 class="card__title">How to read a product card</h2>
+      <p class="card__desc">
+        <strong>LIVE</strong> — operational, real users, evidence-verified.
+        <strong>BETA</strong> — real and working, still evolving.
+        <strong>LAB</strong> — real code or a real concept, not yet a working product you can rely on.
+        Surfaces (Web / PWA / Android / iOS) only show <em>AVAILABLE</em> when independently verified —
+        never a placeholder or a store link that doesn't exist yet.
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>© <span data-current-year>2026</span> JASVERSE®. All rights reserved.</p>
+  <p style="margin-top: 12px;"><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+</footer>
+
+<script src="/assets/js/components.js"></script>
+<script src="/assets/js/navigation.js"></script>
+<script src="/assets/js/products.js"></script>
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/pwa.js"></script>
+</body>
+</html>
