@@ -1,0 +1,17 @@
+{
+  "nav.home": "Главная",
+  "nav.products": "Продукты",
+  "nav.lab": "Лаборатория",
+  "nav.ecosystem": "Экосистема",
+  "nav.live": "В эфире",
+  "home.products.heading": "Продукты JasVerse",
+  "home.lab.heading": "В лаборатории",
+  "home.change.heading": "Последнее публичное изменение",
+  "home.contact.heading": "Связаться с JasVerse",
+  "home.contact.voice": "Звонок",
+  "home.contact.email": "Эл. почта",
+  "install.banner": "Установите JasVerse для быстрого доступа.",
+  "install.button": "Установить",
+  "share.button": "Поделиться страницей",
+  "lang.selector.label": "Выберите язык"
+}

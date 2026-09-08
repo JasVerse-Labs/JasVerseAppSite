@@ -55,8 +55,10 @@ window.JV = window.JV || {};
     if (product.public_url && product.surfaces && product.surfaces.web === "AVAILABLE") {
       linkHtml =
         '<a href="' + escapeHtml(product.public_url) + '" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Open ' +
-        escapeHtml(product.name) + "</a>";
+        escapeHtml(product.name) + "</a> ";
     }
+    linkHtml +=
+      '<a href="/products/' + escapeHtml(product.id) + '/" class="btn btn-primary">Details</a>';
 
     card.innerHTML =
       '<h3 class="card__title">' + escapeHtml(product.name) + " " + JV.badge(product.status) + "</h3>" +

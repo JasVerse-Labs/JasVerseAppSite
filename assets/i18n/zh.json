@@ -1,0 +1,17 @@
+{
+  "nav.home": "首页",
+  "nav.products": "产品",
+  "nav.lab": "实验室",
+  "nav.ecosystem": "生态系统",
+  "nav.live": "实时",
+  "home.products.heading": "JasVerse 产品",
+  "home.lab.heading": "实验室",
+  "home.change.heading": "最新公开更新",
+  "home.contact.heading": "联系 JasVerse",
+  "home.contact.voice": "语音",
+  "home.contact.email": "邮箱",
+  "install.banner": "安装 JasVerse 以便快速访问。",
+  "install.button": "安装",
+  "share.button": "分享此页面",
+  "lang.selector.label": "选择语言"
+}

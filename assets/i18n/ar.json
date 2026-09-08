@@ -1,0 +1,17 @@
+{
+  "nav.home": "الرئيسية",
+  "nav.products": "المنتجات",
+  "nav.lab": "المختبر",
+  "nav.ecosystem": "النظام البيئي",
+  "nav.live": "مباشر",
+  "home.products.heading": "منتجات JasVerse",
+  "home.lab.heading": "في المختبر",
+  "home.change.heading": "آخر تغيير عام",
+  "home.contact.heading": "تواصل مع JasVerse",
+  "home.contact.voice": "صوتي",
+  "home.contact.email": "البريد الإلكتروني",
+  "install.banner": "ثبّت JasVerse للوصول السريع.",
+  "install.button": "تثبيت",
+  "share.button": "شارك هذه الصفحة",
+  "lang.selector.label": "اختر اللغة"
+}

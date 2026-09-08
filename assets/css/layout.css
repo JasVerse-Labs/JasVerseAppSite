@@ -7,14 +7,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
   height: var(--jv-nav-height);
   padding: 0 12px;
   background: rgba(3, 5, 10, 0.82);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--jv-card-border);
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 .jv-nav__inner {
@@ -24,6 +21,21 @@
   max-width: var(--jv-max-width);
   width: 100%;
   margin: 0 auto;
+  min-width: 0;
+}
+
+/* Only the link list scrolls horizontally on narrow viewports -- the
+   brand and the language selector stay pinned and always visible
+   (Founder live-site addendum: selector must not be scrolled out of
+   reach on mobile). */
+.jv-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .jv-nav__brand {
@@ -34,10 +46,10 @@
   letter-spacing: 0.04em;
   color: var(--jv-text-primary);
   text-decoration: none;
-  margin-right: auto;
   white-space: nowrap;
   padding: 8px;
   min-height: 44px;
+  flex-shrink: 0;
 }
 
 .jv-nav__brand img {
@@ -99,6 +111,50 @@
   color: #f5f5f5;
   text-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
   margin-bottom: 12px;
+}
+
+/* Hero brand block: crest to the left of the wordmark, with the Italian
+   tricolor rendered as an underline instead of a flag emoji in the title
+   (Founder live-site addendum). */
+.hero-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 12px;
+}
+
+.emblem-inline {
+  flex-shrink: 0;
+  border-radius: 14px;
+  display: block;
+  filter: drop-shadow(0 0 18px rgba(255, 0, 90, 0.35))
+          drop-shadow(0 0 16px rgba(0, 200, 255, 0.22));
+}
+
+.wordmark-col {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.wordmark {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  color: #f5f5f5;
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+}
+
+.tricolor-underline {
+  height: 4px;
+  width: 100%;
+  margin-top: 8px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #009246 0 33.34%, #F1F2F1 33.34% 66.67%, #CE2B37 66.67% 100%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
 }
 
 .page-header .tagline {

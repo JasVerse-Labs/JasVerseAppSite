@@ -170,3 +170,86 @@
 .install-banner.visible { display: flex; }
 
 .install-banner p { color: var(--jv-text-secondary); font-size: 0.9rem; }
+
+/* Global language selector (Founder live-site addendum). Visually
+   understated to match the nav's existing scale -- not a copy of any
+   other product's larger picker. */
+.lang-selector {
+  position: relative;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+
+.lang-selector__trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 10px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--jv-radius-sm);
+  color: var(--jv-text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.lang-selector__trigger:hover,
+.lang-selector__trigger:focus-visible {
+  border-color: var(--jv-cyan);
+  color: var(--jv-cyan);
+}
+
+.lang-selector__flag { font-size: 1.05rem; line-height: 1; }
+.lang-selector__code { text-transform: uppercase; }
+.lang-selector__caret { font-size: 0.6rem; opacity: 0.7; }
+
+.lang-selector__menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  max-height: 320px;
+  overflow-y: auto;
+  background: #0a0c14;
+  border: 1px solid var(--jv-card-border-hover);
+  border-radius: var(--jv-radius-sm);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 185, 255, 0.08);
+  padding: 6px;
+  z-index: 600;
+  list-style: none;
+  margin: 0;
+}
+
+.lang-selector__menu[hidden] { display: none; }
+
+.lang-selector__option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: var(--jv-text-secondary);
+  font-size: 0.88rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.lang-selector__option:hover,
+.lang-selector__option:focus-visible {
+  background: rgba(0, 185, 255, 0.1);
+  color: var(--jv-cyan);
+}
+
+.lang-selector__option[aria-selected="true"] {
+  color: var(--jv-magenta);
+  background: rgba(255, 0, 112, 0.08);
+}
+
+.lang-selector__option .lang-selector__flag { font-size: 1.1rem; }
