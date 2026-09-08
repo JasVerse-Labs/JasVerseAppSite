@@ -1,0 +1,30 @@
+name: Site Quality
+
+# Zero-secret static-site validation gate. Runs the same checks a
+# contributor would run locally; no deploy step here (GitHub Pages
+# deploys separately from the default branch).
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Publication firewall (public data schema + secret-pattern scan)
+        run: node scripts/validate-public-data.mjs
+
+      - name: Site validation (pages, links, manifest, sitemap, metadata)
+        run: node scripts/validate-site.mjs

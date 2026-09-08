@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "last_verified": "2026-09-08",
+  "products": [
+    {
+      "id": "byebyeprice",
+      "name": "ByeByePrice",
+      "status": "BETA",
+      "summary": "Real price comparisons from real sellers. No fake sales, no manipulated discounts — an Italian anti-scam price comparison engine, powered by live data.",
+      "public_url": "https://byebyeprice.com",
+      "surfaces": {
+        "web": "AVAILABLE",
+        "pwa": "AVAILABLE",
+        "android": "NOT_AVAILABLE",
+        "ios": "NOT_AVAILABLE"
+      },
+      "last_verified": "2026-09-08"
+    },
+    {
+      "id": "maikore",
+      "name": "MaiKore",
+      "status": "LAB",
+      "summary": "A voice-driven app-generation concept: speak a command, get a working application. Real, substantial code exists across the full stack — it is not yet a working product a user can rely on.",
+      "public_url": null,
+      "surfaces": null,
+      "last_verified": "2026-09-08"
+    },
+    {
+      "id": "the-boss-key",
+      "name": "The Boss Key",
+      "status": "LAB",
+      "summary": "A vision for one biometric key that replaces passwords and corporate logins, without Google or Facebook as gatekeepers. Currently a concept — no working implementation exists yet.",
+      "public_url": null,
+      "surfaces": null,
+      "last_verified": "2026-09-08"
+    }
+  ]
+}

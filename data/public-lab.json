@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "last_verified": "2026-09-08",
+  "experiments": [
+    {
+      "id": "cross-platform-build-portability",
+      "title": "Cross-Platform Build Portability",
+      "status": "VALIDATED",
+      "summary": "A clean-room build drill from a Linux environment found that ByeByePrice's client build silently depended on a case-insensitive filesystem. Fixed, and now regression-gated by CI on Linux.",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "id": "sandbox-continuity",
+      "title": "Sandbox Continuity for Test Environments",
+      "status": "EXPERIMENT",
+      "summary": "No single physical device or sandbox instance should be the only place a JasVerse test environment can be understood or rebuilt. Being proven out against ByeByePrice's staging environment.",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "id": "mobile-first-delivery-model",
+      "title": "Mobile-First Product Delivery Model",
+      "status": "RESEARCH",
+      "summary": "A default sequencing principle -- validate on web first, deliver to mobile after real validation and explicit approval -- so that reaching users on the platforms they actually use stops being an easily-forgotten afterthought.",
+      "last_verified": "2026-09-08"
+    },
+    {
+      "id": "zero-budget-engineering",
+      "title": "Zero-Budget Engineering Discipline",
+      "status": "INTEGRATED",
+      "summary": "A standing practice across JasVerse: prefer free, open, self-hostable, or already-owned capabilities before adopting a paid service, and require a verified material advantage before paying for anything.",
+      "last_verified": "2026-09-08"
+    }
+  ]
+}

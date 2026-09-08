@@ -2,19 +2,16 @@
 
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-<url>
-<loc>https://jasverse.com/</loc>
-<priority>1.0</priority>
-</url>
-
-<url>
-<loc>https://jasverse.com/privacy.html</loc>
-<priority>0.8</priority>
-</url>
-
-<url>
-<loc>https://jasverse.com/terms.html</loc>
-<priority>0.8</priority>
-</url>
+<url><loc>https://jasverse.com/</loc><priority>1.0</priority></url>
+<url><loc>https://jasverse.com/products/</loc><priority>0.9</priority></url>
+<url><loc>https://jasverse.com/lab/</loc><priority>0.8</priority></url>
+<url><loc>https://jasverse.com/lab/research.html</loc><priority>0.6</priority></url>
+<url><loc>https://jasverse.com/lab/experiments.html</loc><priority>0.6</priority></url>
+<url><loc>https://jasverse.com/lab/evidence.html</loc><priority>0.6</priority></url>
+<url><loc>https://jasverse.com/lab/method.html</loc><priority>0.6</priority></url>
+<url><loc>https://jasverse.com/ecosystem/</loc><priority>0.7</priority></url>
+<url><loc>https://jasverse.com/live/</loc><priority>0.7</priority></url>
+<url><loc>https://jasverse.com/privacy.html</loc><priority>0.4</priority></url>
+<url><loc>https://jasverse.com/terms.html</loc><priority>0.4</priority></url>
 
 </urlset>

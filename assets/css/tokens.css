@@ -1,0 +1,29 @@
+/* JasVerse — design tokens. See docs/VISUAL_BASELINE.md before changing
+   any value here — this is the APPROVED visual identity, not a starting
+   point for redesign. */
+:root {
+  --jv-bg-1: #03050a;
+  --jv-bg-2: #080910;
+  --jv-cyan: #00b9ff;
+  --jv-magenta: #ff0070;
+  --jv-text-primary: #ffffff;
+  --jv-text-secondary: #c0c0cc;
+  --jv-text-muted: #b8b8c4;
+  --jv-card-bg: rgba(3, 5, 10, 0.5);
+  --jv-card-border: rgba(255, 0, 100, 0.25);
+  --jv-card-border-hover: rgba(0, 185, 255, 0.4);
+  --jv-radius: 16px;
+  --jv-radius-sm: 8px;
+  --jv-font: "Segoe UI", Arial, sans-serif;
+  --jv-nav-height: 64px;
+  --jv-max-width: 1000px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

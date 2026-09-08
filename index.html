@@ -1,407 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JASVERSE® | Powered by AIQX™</title>
-  <link rel="icon" type="image/png" href="Stemma%20JasVerse.png">
-  <meta name="description" content="JASVERSE® — Italian ecosystem for apps and startups that put you in control. No middlemen. No compromise.">
-  <meta property="og:title" content="JASVERSE® | Control Your Data">
-  <meta property="og:description" content="Apps built for people who want real control. No Google. No Facebook. Just you.">
-  <meta property="og:image" content="https://jasverse.com/Stemma%20JasVerse.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jasverse.com/">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="JASVERSE® | Control Your Data">
-  <meta name="twitter:description" content="Apps built for people who want real control.">
-  <meta name="twitter:image" content="https://jasverse.com/Stemma%20JasVerse.png">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body {
-      min-height: 100vh;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background:
-        radial-gradient(circle at 50% 28%, rgba(0, 185, 255, 0.16), transparent 26%),
-        radial-gradient(circle at 50% 40%, rgba(255, 0, 90, 0.18), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(255, 0, 90, 0.16), transparent 34%),
-        linear-gradient(180deg, #03050a 0%, #080910 55%, #03050a 100%);
-      color: #ffffff;
-      overflow-x: hidden;
-    }
-    
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 60px 24px;
-    }
-    
-    .header {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    
-    .emblem {
-      width: 140px;
-      margin: 0 auto 30px;
-      display: block;
-      border-radius: 16px;
-      filter: drop-shadow(0 0 18px rgba(255, 0, 90, 0.35))
-              drop-shadow(0 0 16px rgba(0, 200, 255, 0.22));
-      transition: transform 0.3s ease;
-    }
-    
-    .emblem:hover {
-      transform: scale(1.05);
-    }
-    
-    h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      letter-spacing: 0.05em;
-      line-height: 1.1;
-      color: #f5f5f5;
-      text-shadow: 0 0 18px rgba(255,255,255,0.15);
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
-    
-    .tagline {
-      font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: #b8b8c4;
-      margin-bottom: 50px;
-      letter-spacing: 0.03em;
-    }
-    
-    .sections {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      margin-bottom: 80px;
-    }
-    
-    .section {
-      border: 1px solid rgba(255, 0, 100, 0.25);
-      border-radius: 16px;
-      padding: 40px 30px;
-      background: rgba(3, 5, 10, 0.5);
-      box-shadow: 0 0 30px rgba(255, 0, 90, 0.08);
-      transition: all 0.3s ease;
-    }
-    
-    .section:hover {
-      border-color: rgba(0, 185, 255, 0.4);
-      box-shadow: 0 0 40px rgba(0, 185, 255, 0.12);
-    }
-    
-    .section-title {
-      font-size: 1.8rem;
-      color: #00b9ff;
-      margin-bottom: 12px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-    
-    .section-title.highlight {
-      color: #ff0070;
-    }
-    
-    .section-desc {
-      font-size: 1rem;
-      color: #c0c0cc;
-      margin-bottom: 25px;
-      line-height: 1.6;
-    }
-    
-    .btn {
-      display: inline-block;
-      padding: 14px 32px;
-      border: 2px solid;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-    
-    .btn-primary {
-      border-color: #00b9ff;
-      color: #00b9ff;
-      background: transparent;
-    }
-    
-    .btn-primary:hover {
-      background: rgba(0, 185, 255, 0.1);
-      box-shadow: 0 0 20px rgba(0, 185, 255, 0.3);
-    }
-    
-    .btn-secondary {
-      border-color: #ff0070;
-      color: #ff0070;
-      background: transparent;
-    }
-    
-    .btn-secondary:hover {
-      background: rgba(255, 0, 112, 0.1);
-      box-shadow: 0 0 20px rgba(255, 0, 112, 0.3);
-    }
-    
-    .btn-disabled {
-      border-color: #666;
-      color: #888;
-      cursor: not-allowed;
-      background: transparent;
-    }
-    
-    .form-group {
-      margin-bottom: 18px;
-    }
-    
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 0.9rem;
-      color: #b8b8c4;
-      font-weight: 500;
-    }
-    
-    .form-group input {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid rgba(0, 185, 255, 0.3);
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.05);
-      color: #fff;
-      font-size: 0.95rem;
-      transition: border-color 0.3s ease;
-    }
-    
-    .form-group input:focus {
-      outline: none;
-      border-color: rgba(0, 185, 255, 0.8);
-      box-shadow: 0 0 12px rgba(0, 185, 255, 0.15);
-    }
-    
-    .form-group input::placeholder {
-      color: #666;
-    }
-    
-    .form-submit {
-      width: 100%;
-      padding: 14px;
-      border: 2px solid #00b9ff;
-      border-radius: 6px;
-      background: rgba(0, 185, 255, 0.1);
-      color: #00b9ff;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-    
-    .form-submit:hover {
-      background: rgba(0, 185, 255, 0.2);
-      box-shadow: 0 0 20px rgba(0, 185, 255, 0.3);
-    }
-    
-    .form-message {
-      margin-top: 12px;
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      display: none;
-    }
-    
-    .form-message.success {
-      background: rgba(76, 175, 80, 0.2);
-      color: #4caf50;
-      border: 1px solid rgba(76, 175, 80, 0.3);
-      display: block;
-    }
-    
-    .form-message.error {
-      background: rgba(244, 67, 54, 0.2);
-      color: #f44336;
-      border: 1px solid rgba(244, 67, 54, 0.3);
-      display: block;
-    }
-    
-    .footer {
-      text-align: center;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255, 0, 100, 0.15);
-      color: #888;
-      font-size: 0.85rem;
-    }
-    
-    .footer a {
-      color: #00b9ff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    
-    .footer a:hover {
-      color: #ff0070;
-    }
-    
-    @media (max-width: 768px) {
-      .container {
-        padding: 40px 16px;
-      }
-      
-      h1 {
-        margin-bottom: 20px;
-      }
-      
-      .section {
-        padding: 30px 20px;
-      }
-      
-      .section-title {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+<title>JASVERSE® | Powered by AIQX™</title>
+<meta name="description" content="JASVERSE® — Italian ecosystem for apps and startups that put you in control. Real products, real research, real evidence.">
+<link rel="canonical" href="https://jasverse.com/">
+<link rel="icon" type="image/png" href="/assets/images/stemma-32.png">
+<link rel="apple-touch-icon" href="/assets/images/stemma-180.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#03050a">
+<meta property="og:title" content="JASVERSE® | Control Your Data">
+<meta property="og:description" content="Apps built for people who want real control. No Google. No Facebook. Just you.">
+<meta property="og:image" content="https://jasverse.com/assets/images/social-preview.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jasverse.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JASVERSE® | Control Your Data">
+<meta name="twitter:description" content="Apps built for people who want real control.">
+<meta name="twitter:image" content="https://jasverse.com/assets/images/social-preview.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"JASVERSE","url":"https://jasverse.com/","logo":"https://jasverse.com/assets/images/social-preview.png"}
+</script>
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<link rel="stylesheet" href="/assets/css/mobile.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="jv-nav-root"></div>
+
+<main id="main">
   <div class="container">
-    
-    <div class="header">
-      <img src="Stemma%20JasVerse.png" alt="JASVERSE Logo" class="emblem">
+
+    <div id="install-banner" class="install-banner" role="status">
+      <p>Install JasVerse for quick access.</p>
+      <button id="install-btn" class="btn btn-primary" type="button">Install</button>
+    </div>
+
+    <div class="page-header">
+      <img src="/assets/images/stemma-192.png" alt="JASVERSE emblem" class="emblem" width="100" height="100">
       <h1>🇮🇹 JASVERSE®</h1>
-      <p class="tagline">Apps built for people who want control.</p>
-    </div>
-    
-    <div class="sections">
-      
-      <div class="section">
-        <h2 class="section-title">🔑 The Boss Key</h2>
-        <p class="section-desc">
-          One key to rule them all. Biometric authentication without Google, Facebook, or corporate gatekeepers. 
-          Coming soon.
-        </p>
-        <button class="btn btn-primary" onclick="scrollToForm()">Get Early Access</button>
-      </div>
-      
-      <div class="section">
-        <h2 class="section-title highlight">📊 ByeByePrice</h2>
-        <p class="section-desc">
-          Real price comparisons. Real discounts. No fake sales, no manipulation. 
-          Italian anti-scam comparison engine powered by real data.
-        </p>
-        <a href="https://byebyeprice.com" target="_blank" class="btn btn-secondary">Launch Beta</a>
-      </div>
-      
-      <div class="section">
-        <h2 class="section-title">🚀 Coming Next</h2>
-        <p class="section-desc">
-          More apps. Same mission. Control, transparency, honesty.
-          Built by founders who use their own products.
-        </p>
-        <button class="btn btn-disabled" disabled>Stay Tuned</button>
-      </div>
-      
-    </div>
-    
-    <div class="section" id="waitlist-section" style="max-width: 500px; margin: 0 auto;">
-      <h2 class="section-title" style="text-align: center;">Early Access: The Boss Key</h2>
-      <p class="section-desc" style="text-align: center; margin-bottom: 30px;">
-        Be first to test the future of authentication.
-      </p>
-      
-      <form id="waitlistForm">
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            placeholder="your@email.com" 
-            required
-          >
-        </div>
-        
-        <div class="form-group">
-          <label for="name">Name (optional)</label>
-          <input 
-            type="text" 
-            id="name" 
-            name="name" 
-            placeholder="Your name"
-          >
-        </div>
-        
-        <button type="submit" class="form-submit">Join Waitlist</button>
-        <div class="form-message" id="formMessage"></div>
-      </form>
+      <p class="tagline">Powered by AIQX™ — Quantum AI for apps, startups, modules &amp; autonomous systems.</p>
     </div>
 
-    <div class="section" style="max-width: 500px; margin: 40px auto 0; text-align: center;">
-      <h2 class="section-title" style="display: inline-flex; align-items: center; justify-content: center; gap: 12px;">
-        <span style="font-size: 1.5em;">🇮🇹</span>
-        Contattaci
+    <p class="card__desc" style="text-align:center; max-width:640px; margin:0 auto 60px;">
+      JasVerse is the ecosystem where products, research, modules and autonomous systems are created,
+      tested and evolved. Apps built for people who want control — no middlemen, no compromise.
+    </p>
+
+    <section aria-labelledby="home-products-heading" style="margin-bottom:60px;">
+      <h2 id="home-products-heading" class="card__title" style="justify-content:center; margin-bottom:24px;">Live Products</h2>
+      <div class="sections grid-3" id="home-products-preview"></div>
+      <p style="text-align:center; margin-top:20px;">
+        <a href="/products/" class="btn btn-primary">See all products</a>
+      </p>
+    </section>
+
+    <section aria-labelledby="home-lab-heading" style="margin-bottom:60px;">
+      <h2 id="home-lab-heading" class="card__title" style="justify-content:center; margin-bottom:24px;">In the Lab</h2>
+      <div class="sections grid-2" id="lab-experiments-grid" data-lab-mode="preview"></div>
+      <p style="text-align:center; margin-top:20px;">
+        <a href="/lab/" class="btn btn-secondary">Explore the Lab</a>
+      </p>
+    </section>
+
+    <section aria-labelledby="home-change-heading" class="card" style="max-width:640px; margin:0 auto 60px;">
+      <h2 id="home-change-heading" class="card__title">Latest Public Change</h2>
+      <div id="home-latest-change"></div>
+      <p style="margin-top:16px;"><a href="/live/">See ecosystem status →</a></p>
+    </section>
+
+    <div class="section card contact-card" lang="it" style="max-width: 500px; margin: 0 auto 40px;">
+      <h2 class="card__title" style="justify-content:center; gap:12px;">
+        <span aria-hidden="true">🇮🇹</span> Contattaci
       </h2>
-      <p class="section-desc" style="margin-bottom: 24px;">
-        Preferisci parlare direttamente? Disponibile per voce e WhatsApp.
+      <p class="card__desc">
+        Preferisci parlare direttamente? Disponibile per voce e WhatsApp — anche per l'accesso anticipato a The Boss Key: nessuna iscrizione finta, solo un contatto reale.
       </p>
-
-      <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap;">
-        <a href="tel:+393505744513" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
-          <span>☎️</span> Voce
+      <div class="contact-actions">
+        <a href="tel:+393505744513" class="btn btn-primary">
+          <span aria-hidden="true">☎️</span> Voce
         </a>
-        <a href="https://wa.me/393505744513" target="_blank" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
-          <span>💬</span> WhatsApp
+        <a href="https://wa.me/393505744513" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <span aria-hidden="true">💬</span> WhatsApp
         </a>
       </div>
-
-      <p style="font-size: 1.1rem; color: #00b9ff; font-weight: 600; margin-bottom: 8px;">+39 350 574 4513</p>
-      <p style="font-size: 0.9rem; color: #b8b8c4;">Disponibile per chiamate e messaggi istantanei</p>
+      <p class="contact-number" lang="und">+39 350 574 4513</p>
+      <p class="contact-hint">Disponibile per chiamate e messaggi istantanei</p>
     </div>
 
-    <div class="footer">
-      <p>© 2026 JASVERSE®. All rights reserved.</p>
-      <p style="margin-top: 12px;">
-        <a href="privacy.html">Privacy</a> • 
-        <a href="terms.html">Terms</a>
-      </p>
-    </div>
-    
   </div>
-  
-  <script>
-    function scrollToForm() {
-      document.getElementById('waitlist-section').scrollIntoView({ behavior: 'smooth' });
-    }
-    
-    document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
-      const email = document.getElementById('email').value;
-      const name = document.getElementById('name').value;
-      const formMessage = document.getElementById('formMessage');
-      
-      if (!email) {
-        formMessage.textContent = 'Please enter a valid email.';
-        formMessage.className = 'form-message error';
-        return;
-      }
-      
-      try {
-        formMessage.textContent = `✓ You're on the list! We'll email you at ${email} when The Boss Key is ready.`;
-        formMessage.className = 'form-message success';
-        
-        this.reset();
-        
-      } catch (error) {
-        formMessage.textContent = 'Something went wrong. Try again.';
-        formMessage.className = 'form-message error';
-      }
-    });
-  </script>
+</main>
+
+<footer class="footer">
+  <p>© <span data-current-year>2026</span> JASVERSE®. All rights reserved.</p>
+  <p style="margin-top: 12px;">
+    <a href="/privacy.html">Privacy</a> ·
+    <a href="/terms.html">Terms</a>
+  </p>
+  <p class="footer__meta">v.2026.09.08 · <button data-share type="button" style="background:none;border:none;color:#00b9ff;cursor:pointer;font:inherit;padding:0;">Share this page</button></p>
+</footer>
+
+<script src="/assets/js/components.js"></script>
+<script src="/assets/js/navigation.js"></script>
+<script src="/assets/js/home.js"></script>
+<script src="/assets/js/lab.js"></script>
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/pwa.js"></script>
 </body>
 </html>
-

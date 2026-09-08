@@ -29,10 +29,20 @@ The project focuses on:
 |---|---|
 | Domain | Online |
 | HTTPS | Active |
-| Landing Page | Live |
+| Site | Live — public ecosystem front door (Products / Lab / Ecosystem / Live) |
+| PWA | Installable (manifest + service worker) |
 | Security | Active |
-| Development | In Progress |
-| Public Launch | Coming Soon |
+| Public Launch | Live |
+
+---
+
+## Structure
+
+A static site — HTML/CSS/vanilla JS, GitHub Pages, GitHub Actions. No
+framework, no paid service, no external runtime dependency. See
+`docs/VISUAL_BASELINE.md` (approved visual identity) and
+`docs/PUBLICATION_MODEL.md` (how public data gets here from
+JasVerse-Operations) before making structural changes.
 
 ---
 

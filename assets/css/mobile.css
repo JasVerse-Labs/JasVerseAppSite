@@ -1,0 +1,24 @@
+/* JasVerse — mobile-first responsive adjustments.
+   Tested (Part 22 / Part 36) at 320/360/375/390/430/768/1024/1440. */
+
+@media (max-width: 768px) {
+  .container { padding: 32px 16px; }
+  .card { padding: 26px 20px; }
+  .card__title { font-size: 1.3rem; }
+  .sections { gap: 20px; margin-bottom: 40px; }
+  .page-header { margin-bottom: 40px; }
+  .jv-nav__link { padding: 0 10px; font-size: 0.84rem; }
+  .ecosystem-branch { gap: 10px; }
+  .status-row { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 430px) {
+  .jv-nav__brand span.brand-text { display: none; }
+  .btn { width: 100%; }
+  .contact-actions .btn { width: auto; flex: 1 1 140px; }
+}
+
+/* Never let content overflow horizontally on very narrow viewports */
+@media (max-width: 320px) {
+  .page-header h1 { font-size: 1.9rem; }
+}

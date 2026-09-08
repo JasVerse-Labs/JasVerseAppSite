@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+<title>Offline | JASVERSE®</title>
+<meta name="description" content="You're offline. JasVerse couldn't reach the network.">
+<link rel="icon" type="image/png" href="/assets/images/stemma-32.png">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<style>
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; text-align: center; }
+  .offline-box { max-width: 480px; padding: 40px 24px; }
+  .offline-box img { width: 80px; margin-bottom: 24px; border-radius: 14px; }
+  h1 { font-size: 1.6rem; margin-bottom: 12px; }
+  p { color: var(--jv-text-muted); line-height: 1.6; }
+</style>
+</head>
+<body>
+  <div class="offline-box">
+    <img src="/assets/images/stemma-128.png" alt="" width="80" height="80">
+    <h1>You're offline</h1>
+    <p>JasVerse couldn't reach the network. Check your connection and try again — pages you've already visited may still work.</p>
+  </div>
+</body>
+</html>
