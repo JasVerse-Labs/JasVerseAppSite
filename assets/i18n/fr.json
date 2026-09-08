@@ -1,0 +1,17 @@
+{
+  "nav.home": "Accueil",
+  "nav.products": "Produits",
+  "nav.lab": "Lab",
+  "nav.ecosystem": "Écosystème",
+  "nav.live": "En direct",
+  "home.products.heading": "Produits JasVerse",
+  "home.lab.heading": "Dans le Lab",
+  "home.change.heading": "Dernier changement public",
+  "home.contact.heading": "Contacter JasVerse",
+  "home.contact.voice": "Voix",
+  "home.contact.email": "E-mail",
+  "install.banner": "Installez JasVerse pour un accès rapide.",
+  "install.button": "Installer",
+  "share.button": "Partager cette page",
+  "lang.selector.label": "Choisir la langue"
+}

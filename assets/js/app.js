@@ -14,7 +14,8 @@
       } else if (navigator.clipboard) {
         navigator.clipboard.writeText(url).then(function () {
           var original = btn.textContent;
-          btn.textContent = "Link copied";
+          var copiedLabel = (window.JVI18N && window.JVI18N.t("share.copied")) || "Link copied";
+          btn.textContent = copiedLabel;
           setTimeout(function () { btn.textContent = original; }, 1800);
         });
       }

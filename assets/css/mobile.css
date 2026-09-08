@@ -22,3 +22,23 @@
 @media (max-width: 320px) {
   .page-header h1 { font-size: 1.9rem; }
 }
+
+/* Hero brand: keep crest-left-of-wordmark on one row at every tested
+   width (320-430px) -- never fall back to "crest above + flag title". */
+@media (max-width: 480px) {
+  .hero-brand { gap: 12px; }
+  .emblem-inline { width: 52px; height: 52px; border-radius: 11px; }
+  .wordmark { font-size: clamp(1.5rem, 8vw, 2.2rem); }
+}
+
+@media (max-width: 340px) {
+  .hero-brand { gap: 10px; }
+  .emblem-inline { width: 42px; height: 42px; border-radius: 9px; }
+  .wordmark { font-size: 1.4rem; }
+}
+
+/* Language selector: compact flag-only trigger on narrow viewports */
+@media (max-width: 430px) {
+  .lang-selector__code { display: none; }
+  .lang-selector__menu { right: -8px; max-width: calc(100vw - 24px); }
+}

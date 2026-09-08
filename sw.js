@@ -5,7 +5,7 @@
    CACHE FIRST. Bump CACHE_VERSION on any asset change to invalidate. */
 "use strict";
 
-var CACHE_VERSION = "jv-cache-v1";
+var CACHE_VERSION = "jv-cache-v2";
 var OFFLINE_URL = "/offline.html";
 
 var PRECACHE = [
@@ -20,7 +20,10 @@ var PRECACHE = [
   "/assets/js/app.js",
   "/assets/js/navigation.js",
   "/assets/js/components.js",
+  "/assets/js/i18n.js",
   "/assets/js/pwa.js",
+  "/assets/i18n/en.json",
+  "/assets/i18n/it.json",
   "/Stemma%20JasVerse.png",
 ];
 
@@ -50,6 +53,7 @@ function isStaticAsset(url) {
   return (
     url.pathname.startsWith("/assets/css/") ||
     url.pathname.startsWith("/assets/js/") ||
+    url.pathname.startsWith("/assets/i18n/") ||
     /\.(png|jpg|jpeg|svg|webp|avif|ico)$/i.test(url.pathname)
   );
 }

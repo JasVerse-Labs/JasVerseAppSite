@@ -1,0 +1,17 @@
+{
+  "nav.home": "হোম",
+  "nav.products": "পণ্য",
+  "nav.lab": "ল্যাব",
+  "nav.ecosystem": "ইকোসিস্টেম",
+  "nav.live": "লাইভ",
+  "home.products.heading": "JasVerse পণ্য",
+  "home.lab.heading": "ল্যাবে",
+  "home.change.heading": "সর্বশেষ পাবলিক পরিবর্তন",
+  "home.contact.heading": "JasVerse-এর সাথে যোগাযোগ করুন",
+  "home.contact.voice": "ভয়েস",
+  "home.contact.email": "ইমেইল",
+  "install.banner": "দ্রুত অ্যাক্সেসের জন্য JasVerse ইনস্টল করুন।",
+  "install.button": "ইনস্টল করুন",
+  "share.button": "এই পাতাটি শেয়ার করুন",
+  "lang.selector.label": "ভাষা নির্বাচন করুন"
+}

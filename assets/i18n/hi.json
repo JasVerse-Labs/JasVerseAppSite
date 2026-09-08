@@ -1,0 +1,17 @@
+{
+  "nav.home": "होम",
+  "nav.products": "उत्पाद",
+  "nav.lab": "लैब",
+  "nav.ecosystem": "इकोसिस्टम",
+  "nav.live": "लाइव",
+  "home.products.heading": "JasVerse उत्पाद",
+  "home.lab.heading": "लैब में",
+  "home.change.heading": "नवीनतम सार्वजनिक बदलाव",
+  "home.contact.heading": "JasVerse से संपर्क करें",
+  "home.contact.voice": "वॉइस",
+  "home.contact.email": "ईमेल",
+  "install.banner": "त्वरित पहुंच के लिए JasVerse इंस्टॉल करें।",
+  "install.button": "इंस्टॉल करें",
+  "share.button": "इस पेज को साझा करें",
+  "lang.selector.label": "भाषा चुनें"
+}

@@ -38,60 +38,62 @@
   <div class="container">
 
     <div id="install-banner" class="install-banner" role="status">
-      <p>Install JasVerse for quick access.</p>
-      <button id="install-btn" class="btn btn-primary" type="button">Install</button>
+      <p data-i18n="install.banner">Install JasVerse for quick access.</p>
+      <button id="install-btn" class="btn btn-primary" type="button" data-i18n="install.button">Install</button>
     </div>
 
     <div class="page-header">
-      <img src="/assets/images/stemma-192.png" alt="JASVERSE emblem" class="emblem" width="100" height="100">
-      <h1>🇮🇹 JASVERSE®</h1>
-      <p class="tagline">Powered by AIQX™ — Quantum AI for apps, startups, modules &amp; autonomous systems.</p>
+      <div class="hero-brand">
+        <img src="/assets/images/stemma-192.png" alt="JASVERSE emblem" class="emblem-inline" width="72" height="72">
+        <div class="wordmark-col">
+          <h1 class="wordmark">JASVERSE®</h1>
+          <div class="tricolor-underline" aria-hidden="true"></div>
+        </div>
+      </div>
+      <p class="tagline" data-i18n="home.tagline">Powered by AIQX™ — Quantum AI for apps, startups, modules &amp; autonomous systems.</p>
     </div>
 
-    <p class="card__desc" style="text-align:center; max-width:640px; margin:0 auto 60px;">
+    <p class="card__desc" data-i18n="home.intro" style="text-align:center; max-width:640px; margin:0 auto 60px;">
       JasVerse is the ecosystem where products, research, modules and autonomous systems are created,
       tested and evolved. Apps built for people who want control — no middlemen, no compromise.
     </p>
 
     <section aria-labelledby="home-products-heading" style="margin-bottom:60px;">
-      <h2 id="home-products-heading" class="card__title" style="justify-content:center; margin-bottom:24px;">Live Products</h2>
+      <h2 id="home-products-heading" class="card__title" style="justify-content:center; margin-bottom:24px;" data-i18n="home.products.heading">JasVerse Products</h2>
       <div class="sections grid-3" id="home-products-preview"></div>
       <p style="text-align:center; margin-top:20px;">
-        <a href="/products/" class="btn btn-primary">See all products</a>
+        <a href="/products/" class="btn btn-primary" data-i18n="home.products.cta">See all products</a>
       </p>
     </section>
 
     <section aria-labelledby="home-lab-heading" style="margin-bottom:60px;">
-      <h2 id="home-lab-heading" class="card__title" style="justify-content:center; margin-bottom:24px;">In the Lab</h2>
+      <h2 id="home-lab-heading" class="card__title" style="justify-content:center; margin-bottom:24px;" data-i18n="home.lab.heading">In the Lab</h2>
       <div class="sections grid-2" id="lab-experiments-grid" data-lab-mode="preview"></div>
       <p style="text-align:center; margin-top:20px;">
-        <a href="/lab/" class="btn btn-secondary">Explore the Lab</a>
+        <a href="/lab/" class="btn btn-secondary" data-i18n="home.lab.cta">Explore the Lab</a>
       </p>
     </section>
 
     <section aria-labelledby="home-change-heading" class="card" style="max-width:640px; margin:0 auto 60px;">
-      <h2 id="home-change-heading" class="card__title">Latest Public Change</h2>
+      <h2 id="home-change-heading" class="card__title" data-i18n="home.change.heading">Latest Public Change</h2>
       <div id="home-latest-change"></div>
-      <p style="margin-top:16px;"><a href="/live/">See ecosystem status →</a></p>
+      <p style="margin-top:16px;"><a href="/live/" data-i18n="home.change.cta">See ecosystem status →</a></p>
     </section>
 
-    <div class="section card contact-card" lang="it" style="max-width: 500px; margin: 0 auto 40px;">
+    <div class="section card contact-card" style="max-width: 500px; margin: 0 auto 40px;">
       <h2 class="card__title" style="justify-content:center; gap:12px;">
-        <span aria-hidden="true">🇮🇹</span> Contattaci
+        <span data-i18n="home.contact.heading">Contact JasVerse</span>
       </h2>
-      <p class="card__desc">
-        Preferisci parlare direttamente? Disponibile per voce e WhatsApp — anche per l'accesso anticipato a The Boss Key: nessuna iscrizione finta, solo un contatto reale.
+      <p class="card__desc" data-i18n="home.contact.desc">
+        Prefer to talk directly? Available by voice, WhatsApp and email — real channels, no fake signup.
       </p>
       <div class="contact-actions">
-        <a href="tel:+393505744513" class="btn btn-primary">
-          <span aria-hidden="true">☎️</span> Voce
-        </a>
-        <a href="https://wa.me/393505744513" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <span aria-hidden="true">💬</span> WhatsApp
-        </a>
+        <a href="tel:+393505744513" class="btn btn-primary"><span aria-hidden="true">☎</span> <span data-i18n="home.contact.voice">Voice</span></a>
+        <a href="https://wa.me/393505744513" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><span aria-hidden="true">💬</span> WhatsApp</a>
+        <a href="mailto:info@jasverse.com" class="btn btn-secondary"><span aria-hidden="true">✉</span> <span data-i18n="home.contact.email">Email</span></a>
       </div>
-      <p class="contact-number" lang="und">+39 350 574 4513</p>
-      <p class="contact-hint">Disponibile per chiamate e messaggi istantanei</p>
+      <p class="contact-number" lang="und">+39 350 574 4513 · info@jasverse.com</p>
+      <p class="contact-hint" data-i18n="home.contact.hint">Available for calls and instant messages.</p>
     </div>
 
   </div>
@@ -103,10 +105,11 @@
     <a href="/privacy.html">Privacy</a> ·
     <a href="/terms.html">Terms</a>
   </p>
-  <p class="footer__meta">v.2026.09.08 · <button data-share type="button" style="background:none;border:none;color:#00b9ff;cursor:pointer;font:inherit;padding:0;">Share this page</button></p>
+  <p class="footer__meta">v.2026.09.08 · <button data-share type="button" data-i18n="share.button" style="background:none;border:none;color:#00b9ff;cursor:pointer;font:inherit;padding:0;">Share this page</button></p>
 </footer>
 
 <script src="/assets/js/components.js"></script>
+<script src="/assets/js/i18n.js"></script>
 <script src="/assets/js/navigation.js"></script>
 <script src="/assets/js/home.js"></script>
 <script src="/assets/js/lab.js"></script>
