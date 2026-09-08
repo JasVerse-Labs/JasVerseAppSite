@@ -4,13 +4,36 @@
   "entries": [
     {
       "date": "2026-09-08",
-      "title": "JasVerse.com rebuilt as the public ecosystem front door",
-      "summary": "New Products, Lab, Ecosystem and Live pages; installable as an app (PWA); same visual identity."
+      "title": {
+        "en": "Live cache and translation corrective release",
+        "it": "Rilascio correttivo per cache live e traduzioni"
+      },
+      "summary": {
+        "en": "Fixed a stale-cache bug that could mix old and new assets after a release, and extended translation to the data-driven parts of the site (products, lab, changelog).",
+        "it": "Risolto un difetto di cache obsoleta che poteva mescolare risorse vecchie e nuove dopo un rilascio, ed estesa la traduzione alle parti del sito basate su dati (prodotti, lab, changelog)."
+      }
     },
     {
       "date": "2026-09-08",
-      "title": "ByeByePrice build now portable across operating systems",
-      "summary": "A build defect only visible on Linux was found and fixed, with an automated check added so it can't silently return."
+      "title": {
+        "en": "JasVerse.com rebuilt as the public ecosystem front door",
+        "it": "JasVerse.com ricostruito come porta d'ingresso pubblica dell'ecosistema"
+      },
+      "summary": {
+        "en": "New Products, Lab, Ecosystem and Live pages; installable as an app (PWA); same visual identity.",
+        "it": "Nuove pagine Prodotti, Lab, Ecosistema e Live; installabile come app (PWA); stessa identità visiva."
+      }
+    },
+    {
+      "date": "2026-09-08",
+      "title": {
+        "en": "ByeByePrice build now portable across operating systems",
+        "it": "La build di ByeByePrice è ora portabile tra sistemi operativi"
+      },
+      "summary": {
+        "en": "A build defect only visible on Linux was found and fixed, with an automated check added so it can't silently return.",
+        "it": "È stato individuato e corretto un difetto di build visibile solo su Linux, con un controllo automatico aggiunto per evitare che ritorni silenziosamente."
+      }
     }
   ]
 }

@@ -4,30 +4,54 @@
   "experiments": [
     {
       "id": "cross-platform-build-portability",
-      "title": "Cross-Platform Build Portability",
+      "title": {
+        "en": "Cross-Platform Build Portability",
+        "it": "Portabilità della Build tra Piattaforme"
+      },
       "status": "VALIDATED",
-      "summary": "A clean-room build drill from a Linux environment found that ByeByePrice's client build silently depended on a case-insensitive filesystem. Fixed, and now regression-gated by CI on Linux.",
+      "summary": {
+        "en": "A clean-room build drill from a Linux environment found that ByeByePrice's client build silently depended on a case-insensitive filesystem. Fixed, and now regression-gated by CI on Linux.",
+        "it": "Un test di build in ambiente pulito da Linux ha scoperto che la build client di ByeByePrice dipendeva silenziosamente da un filesystem non sensibile alle maiuscole/minuscole. Corretto, e ora protetto da regressioni tramite CI su Linux."
+      },
       "last_verified": "2026-09-08"
     },
     {
       "id": "sandbox-continuity",
-      "title": "Sandbox Continuity for Test Environments",
+      "title": {
+        "en": "Sandbox Continuity for Test Environments",
+        "it": "Continuità del Sandbox per gli Ambienti di Test"
+      },
       "status": "EXPERIMENT",
-      "summary": "No single physical device or sandbox instance should be the only place a JasVerse test environment can be understood or rebuilt. Being proven out against ByeByePrice's staging environment.",
+      "summary": {
+        "en": "No single physical device or sandbox instance should be the only place a JasVerse test environment can be understood or rebuilt. Being proven out against ByeByePrice's staging environment.",
+        "it": "Nessun singolo dispositivo fisico o istanza sandbox dovrebbe essere l'unico posto in cui un ambiente di test JasVerse può essere compreso o ricostruito. In fase di verifica sull'ambiente di staging di ByeByePrice."
+      },
       "last_verified": "2026-09-08"
     },
     {
       "id": "mobile-first-delivery-model",
-      "title": "Mobile-First Product Delivery Model",
+      "title": {
+        "en": "Mobile-First Product Delivery Model",
+        "it": "Modello di Distribuzione Prodotto Mobile-First"
+      },
       "status": "RESEARCH",
-      "summary": "A default sequencing principle -- validate on web first, deliver to mobile after real validation and explicit approval -- so that reaching users on the platforms they actually use stops being an easily-forgotten afterthought.",
+      "summary": {
+        "en": "A default sequencing principle -- validate on web first, deliver to mobile after real validation and explicit approval -- so that reaching users on the platforms they actually use stops being an easily-forgotten afterthought.",
+        "it": "Un principio di sequenza predefinito — validare prima sul web, distribuire su mobile dopo una validazione reale e un'approvazione esplicita — così che raggiungere gli utenti sulle piattaforme che usano davvero smetta di essere un ripensamento facile da dimenticare."
+      },
       "last_verified": "2026-09-08"
     },
     {
       "id": "zero-budget-engineering",
-      "title": "Zero-Budget Engineering Discipline",
+      "title": {
+        "en": "Zero-Budget Engineering Discipline",
+        "it": "Disciplina di Ingegneria a Budget Zero"
+      },
       "status": "INTEGRATED",
-      "summary": "A standing practice across JasVerse: prefer free, open, self-hostable, or already-owned capabilities before adopting a paid service, and require a verified material advantage before paying for anything.",
+      "summary": {
+        "en": "A standing practice across JasVerse: prefer free, open, self-hostable, or already-owned capabilities before adopting a paid service, and require a verified material advantage before paying for anything.",
+        "it": "Una prassi permanente in tutto JasVerse: preferire capacità gratuite, aperte, autogestibili o già possedute prima di adottare un servizio a pagamento, e richiedere un vantaggio materiale verificato prima di pagare per qualsiasi cosa."
+      },
       "last_verified": "2026-09-08"
     }
   ]

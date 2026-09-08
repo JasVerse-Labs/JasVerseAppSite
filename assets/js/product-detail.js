@@ -25,7 +25,22 @@
       }
 
       var lastVerified = document.getElementById("product-last-verified");
-      if (lastVerified) lastVerified.textContent = "Last verified: " + product.last_verified;
+      if (lastVerified) lastVerified.textContent = window.JV.lastVerifiedText(product.last_verified);
     })
     .catch(function () {});
+
+  if (window.JVI18N) {
+    window.JVI18N.onChange(function () {
+      var lastVerified = document.getElementById("product-last-verified");
+      if (lastVerified && lastVerified.textContent) {
+        fetch("/data/public-products.json", { cache: "no-store" })
+          .then(function (r) { return r.json(); })
+          .then(function (list) {
+            var product = list.products.filter(function (x) { return x.id === id; })[0];
+            if (product) lastVerified.textContent = window.JV.lastVerifiedText(product.last_verified);
+          })
+          .catch(function () {});
+      }
+    });
+  }
 })();
