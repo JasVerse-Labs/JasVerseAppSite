@@ -21,6 +21,7 @@ var PRECACHE = [
   "/assets/js/navigation.js",
   "/assets/js/components.js",
   "/assets/js/i18n.js",
+  "/assets/js/product-detail.js",
   "/assets/js/pwa.js",
   "/assets/i18n/en.json",
   "/assets/i18n/it.json",

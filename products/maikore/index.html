@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+<title>MaiKore | JASVERSE®</title>
+<meta name="description" content="MaiKore: a voice-driven app-generation concept. Real status, real evidence, no fake availability.">
+<link rel="canonical" href="https://jasverse.com/products/maikore/">
+<link rel="icon" type="image/png" href="/assets/images/stemma-32.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#03050a">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/layout.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<link rel="stylesheet" href="/assets/css/mobile.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div id="jv-nav-root"></div>
+
+<main id="main">
+  <div class="container">
+    <div class="page-header">
+      <h1>MaiKore</h1>
+      <p class="tagline"><span class="badge badge-lab">LAB</span></p>
+    </div>
+
+    <div class="card" id="product-detail-root" data-product-id="maikore" style="max-width:720px; margin:0 auto 32px;">
+      <h2 class="card__title">What it is</h2>
+      <p class="card__desc">
+        A voice-driven app-generation concept: speak a command describing an app,
+        and get a working application deployed automatically, without writing code.
+      </p>
+
+      <h2 class="card__title">Problem</h2>
+      <p class="card__desc">
+        Building and deploying even a simple application still requires a developer.
+        MaiKore's premise is to collapse "describe it" and "have it running" into
+        one voice interaction.
+      </p>
+
+      <h2 class="card__title">Current reality</h2>
+      <p class="card__desc">
+        Real, substantial code exists across the full stack — a FastAPI backend, a
+        React web frontend, a React Native mobile app, and a defined pipeline
+        (voice transcription &rarr; language-model planning &rarr; code generation
+        &rarr; container build &rarr; Kubernetes deploy). It is <strong>not yet a
+        working product a user can rely on</strong>: the pipeline depends on
+        self-hosted GPU inference infrastructure that has not been provisioned, so
+        end-to-end generation cannot run in production today.
+      </p>
+
+      <h2 class="card__title">Capabilities</h2>
+      <p class="card__desc">
+        Demo web and mobile clients exist with voice and typed input. The generation
+        pipeline, authentication, and deployment orchestration are implemented in code
+        but are not backed by live inference infrastructure.
+      </p>
+
+      <h2 class="card__title">Current distribution surfaces</h2>
+      <div id="product-surfaces"></div>
+
+      <h2 class="card__title">What exists now</h2>
+      <p class="card__desc">
+        A complete application codebase (backend, web frontend, mobile app) and a
+        demo-only web deployment.
+      </p>
+
+      <h2 class="card__title">What does not exist yet</h2>
+      <p class="card__desc">
+        No provisioned production inference infrastructure (the GPU-backed language
+        models the pipeline depends on). No published Android or iOS app.
+      </p>
+
+      <h2 class="card__title">Current next step</h2>
+      <p class="card__desc">
+        Provision real inference infrastructure before any end-to-end generation
+        claim can move from LAB to a working product.
+      </p>
+
+      <p style="text-align:center; color:var(--jv-text-muted); font-size:0.85rem; margin-top:16px;" id="product-last-verified"></p>
+    </div>
+
+    <p style="text-align:center;"><a href="/products/">&larr; Back to all products</a></p>
+  </div>
+</main>
+
+<footer class="footer">
+  <p>© <span data-current-year>2026</span> JASVERSE®. All rights reserved.</p>
+  <p style="margin-top: 12px;"><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+</footer>
+
+<script src="/assets/js/components.js"></script>
+<script src="/assets/js/i18n.js"></script>
+<script src="/assets/js/navigation.js"></script>
+<script src="/assets/js/product-detail.js"></script>
+<script src="/assets/js/app.js"></script>
+<script src="/assets/js/pwa.js"></script>
+</body>
+</html>
