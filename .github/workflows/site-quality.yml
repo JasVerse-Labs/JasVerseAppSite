@@ -28,3 +28,29 @@ jobs:
 
       - name: Site validation (pages, links, manifest, sitemap, metadata)
         run: node scripts/validate-site.mjs
+
+  pwa-upgrade-regression:
+    # CORRECTIVE CLOSURE 002-E, Part D. The exact regression that shipped
+    # a mix of old/new PWA assets to real users (see runtime/CHANGE_FEED.md
+    # EVT-013 in JasVerse-Operations) had only ever been verified by hand,
+    # once, in a session sandbox -- never as a repeatable CI gate. This is
+    # that gate. Chromium-only install (not the full browser matrix) to
+    # keep this the smallest safe addition, per this repo's zero-framework/
+    # zero-dependency default.
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install test-only devDependencies
+        run: npm ci
+
+      - name: Install Chromium only (not the full Playwright browser matrix)
+        run: npx playwright install --with-deps chromium
+
+      - name: PWA upgrade-regression test
+        run: npx playwright test

@@ -57,7 +57,7 @@ for (const f of readdirSync(dataDir).filter((f) => f.endsWith(".json"))) {
 function listHtmlFiles(dir) {
   let out = [];
   for (const entry of readdirSync(dir)) {
-    if (entry.startsWith(".git")) continue;
+    if (entry.startsWith(".git") || entry === "node_modules" || entry === "test-results") continue;
     const full = join(dir, entry);
     const st = statSync(full);
     if (st.isDirectory()) out = out.concat(listHtmlFiles(full));

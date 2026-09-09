@@ -76,4 +76,23 @@ if (i18nAfter !== i18nBefore) {
   filesChanged++;
 }
 
+/* sw.js's own ASSET_VERSION drove CACHE_VERSION and PRECACHE and, until
+   this fix, had to be bumped BY HAND in sync with this script's own run
+   -- exactly the kind of manual step that could silently reintroduce the
+   stale-mixed-release bug this script exists to prevent (a real gap
+   found while building tests/pwa-upgrade-regression.spec.js in Wave 002
+   CORRECTIVE CLOSURE 002-E, Part D). Bump it here too, automatically. */
+const swPath = join(ROOT, "sw.js");
+const swBefore = readFileSync(swPath, "utf8");
+const SW_ASSET_VERSION_RE = /(var ASSET_VERSION = ")[^"]*(";)/;
+if (!SW_ASSET_VERSION_RE.test(swBefore)) {
+  console.error("WARNING: sw.js's ASSET_VERSION line was not found -- CACHE_VERSION may now be out of sync.");
+} else {
+  const swAfter = swBefore.replace(SW_ASSET_VERSION_RE, `$1${VERSION}$2`);
+  if (swAfter !== swBefore) {
+    writeFileSync(swPath, swAfter);
+    filesChanged++;
+  }
+}
+
 console.log(`ASSET_VERSION set to "${VERSION}" -- ${filesChanged} file(s) updated.`);
