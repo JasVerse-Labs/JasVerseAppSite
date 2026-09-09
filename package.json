@@ -1,0 +1,11 @@
+{
+  "name": "jasverseappsite",
+  "private": true,
+  "description": "No production dependencies: this is a zero-framework static site. @playwright/test exists solely to run tests/pwa-upgrade-regression.spec.js in CI (see .github/workflows/site-quality.yml) -- it is never shipped to jasverse.com.",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0"
+  }
+}
