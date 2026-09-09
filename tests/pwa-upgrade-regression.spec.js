@@ -99,24 +99,37 @@ test("upgrading from an old release to a new one never mixes assets", async () =
 
     await page.reload({ waitUntil: "networkidle" });
     // Force an immediate update check rather than waiting on the
-    // browser's own implicit once-per-navigation check timing, then poll
-    // (not a fixed sleep) until the new worker has actually activated and
-    // purged the old cache -- this is the real regression being guarded
-    // against, so it must be observed, not assumed after a fixed delay.
+    // browser's own implicit once-per-navigation check timing, then wait
+    // on the actual lifecycle EVENT (the new worker reaching "activated")
+    // instead of blind reload-polling -- the activate handler's cache
+    // purge has already run by the time that state is observable, so
+    // this is a deterministic signal rather than a timing guess. Blind
+    // reload-polling passed locally but flaked in CI (slower cold-start
+    // Chromium), which is exactly the kind of environment-dependent
+    // timing this rewrite removes.
     await page.evaluate(async () => {
       const reg = await navigator.serviceWorker.getRegistration();
-      if (reg) await reg.update();
+      if (!reg) return;
+      await reg.update();
+      await new Promise((resolve) => {
+        const candidate = reg.installing || reg.waiting;
+        if (!candidate) {
+          resolve();
+          return;
+        }
+        if (candidate.state === "activated") {
+          resolve();
+          return;
+        }
+        candidate.addEventListener("statechange", function onChange() {
+          if (candidate.state === "activated") {
+            candidate.removeEventListener("statechange", onChange);
+            resolve();
+          }
+        });
+      });
     });
-
-    await expect
-      .poll(
-        async () => {
-          await page.reload({ waitUntil: "networkidle" }).catch(() => {});
-          return page.evaluate(() => caches.keys());
-        },
-        { timeout: 20_000, intervals: [500, 1000, 2000] }
-      )
-      .not.toEqual(expect.arrayContaining(["jv-cache-v3-test-old-001"]));
+    await page.reload({ waitUntil: "networkidle" });
 
     const newCacheKeys = await page.evaluate(() => caches.keys());
     const staleKeys = newCacheKeys.filter((k) => k.includes("test-old-001"));
