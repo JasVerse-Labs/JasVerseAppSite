@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="JASVERSE — THE ORACOLO V2. Ambiente operativo concettuale e interamente simulato.">
+  <meta name="theme-color" content="#152025">
+  <title>JASVERSE — THE ORACOLO V2 · Ambiente operativo</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/v2.css?v=2">
+  <script src="assets/js/content.it.js?v=2" defer></script>
+  <script src="assets/js/app.js?v=2" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Vai allo spazio operativo</a>
+  <div class="app-shell">
+    <header class="app-bar">
+      <a class="wordmark" href="#intention" aria-label="JasVerse The Oracolo, ambiente operativo">
+        <span class="mark" aria-hidden="true"><i></i></span>
+        <span><b>JASVERSE</b><small>THE ORACOLO · V2</small></span>
+      </a>
+      <div class="active-intention" id="active-intention">
+        <span>INTENZIONE ATTIVA</span>
+        <strong>Nessuna intenzione definita</strong>
+      </div>
+      <div class="app-status">
+        <span class="simulation-pill"><i aria-hidden="true"></i> SIMULAZIONE LOCALE</span>
+        <button class="quiet-button" type="button" data-action="open-about">Informazioni</button>
+        <button class="quiet-button" type="button" data-action="open-reset">Azzera</button>
+      </div>
+    </header>
+
+    <aside class="journey-rail" aria-label="Percorso operativo">
+      <div class="rail-heading">
+        <span>PERCORSO</span>
+        <strong id="journey-progress">Pronto per iniziare</strong>
+      </div>
+      <nav id="journey-nav"></nav>
+      <section class="human-anchor" aria-label="Stato del controllo umano">
+        <div class="human-icon" aria-hidden="true">TU</div>
+        <div><span>CONTROLLO UMANO</span><strong id="human-control-state">Presente</strong></div>
+        <button type="button" data-module="oshi" aria-label="Apri i controlli OSHI">Regola</button>
+      </section>
+    </aside>
+
+    <main id="workspace" class="workspace" tabindex="-1"></main>
+
+    <aside class="context-rail" aria-label="Sistemi e attività">
+      <section class="control-strip" id="control-strip">
+        <div class="control-strip__head"><span>SOVRANITÀ</span><button type="button" data-module="oshi">Apri OSHI</button></div>
+        <div class="control-gauge"><i id="control-gauge"></i></div>
+        <p id="control-summary">Modalità assistita. Ogni azione sensibile richiede una decisione.</p>
+      </section>
+      <section class="system-dock">
+        <div class="section-label"><span>SISTEMI DISPONIBILI</span><small>Si attivano nel contesto</small></div>
+        <div id="system-dock"></div>
+      </section>
+      <section class="activity-log" aria-labelledby="activity-title">
+        <div class="section-label"><span id="activity-title">ATTIVITÀ</span><small>Dati dimostrativi</small></div>
+        <ol id="activity-log" aria-live="polite"></ol>
+      </section>
+    </aside>
+  </div>
+
+  <dialog id="module-dialog" class="module-dialog" aria-labelledby="module-title">
+    <div class="dialog-toolbar">
+      <span id="dialog-system">JASVERSE</span>
+      <button type="button" class="icon-button" data-action="close-dialog" aria-label="Chiudi pannello">×</button>
+    </div>
+    <div id="module-content"></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="noscript">Questo prototipo richiede JavaScript. Tutti i dati e i risultati sono locali, fittizi e simulati.</p></noscript>
+</body>
+</html>
