@@ -16,7 +16,7 @@
     authorized: false, denied: false, trialSize: 8, metric: 'richieste',
     demoOutcome: 'promising', ran: false, result: null,
     economicChoice: 'reuse', contributions: { knowledge: true, evidence: true, component: false, value: false },
-    completed: false, openModule: '', moduleTab: '', inspectedCapability: '', selectedFlow: 'knowledge',
+    completed: false, openModule: '', moduleTab: '', inspectedCapability: '', selectedFlow: 'knowledge', authorityOrigin: 'experiment',
     activity: content.activity.map(item => ({ ...item }))
   });
   let state = initialState();
@@ -92,7 +92,7 @@
     return `${workspaceHeader('MAIKORE · COMPOSIZIONE ATTIVA','Le capacità si organizzano intorno alla tua intenzione.','Apri ogni oggetto per vedere perché è presente, cosa sa e cosa resta incerto.','AMBIENTE ASSEMBLATO')}
       ${state.paused ? '<div class="paused-banner">L’assistenza è in pausa. Puoi ispezionare lo stato, ma nessuna nuova preparazione procede.</div>' : ''}
       <div class="environment-grid"><section class="capability-field" aria-label="Ambiente delle capacità"><div class="field-topline"><span>OBIETTIVO ATTIVO</span><span>CONTROLLO: ${modeLabels[state.mode].toUpperCase()}</span></div><div class="human-core"><div><span>AL CENTRO</span><strong>${escapeHTML(clamp(state.goal, 48))}</strong><small>La tua intenzione</small></div></div><div class="capability-lines">${capabilities}</div></section>
-      <aside class="decision-inspector"><span class="overline">SCELTA DI PERCORSO</span><h2>Prima riusare. Poi costruire.</h2><p>MaiKore confronta tre percorsi controllati. Nessuna ricerca esterna è stata eseguita.</p><div class="choice-stack">${choices}</div><div class="confidence"><label><span>CONFIDENZA DEL PERCORSO</span><strong>${confidence}% · IPOTESI</strong></label><div class="confidence-meter"><i style="width:${confidence}%"></i></div></div><div class="reason-line">${truthBadge('inference')}<span>La soluzione riutilizzabile sembra il primo passo con rischio minore.</span></div><div class="actions"><button class="secondary-action" type="button" data-module="maikore">Apri MaiKore</button><span class="spacer"></span><button class="primary-action" type="button" data-action="to-boundaries" ${state.paused ? 'disabled' : ''}>Definisci i confini <span class="arrow">→</span></button></div></aside></div>`;
+      <aside class="decision-inspector"><span class="overline">SCELTA DI PERCORSO</span><h2>Prima riusare. Poi costruire.</h2><p>MaiKore confronta tre percorsi controllati. Nessuna ricerca esterna è stata eseguita.</p><div class="choice-stack">${choices}</div><div class="confidence"><label><span>CONFIDENZA DEL PERCORSO</span><strong>${confidence}% · IPOTESI</strong></label><div class="confidence-meter"><i style="width:${confidence}%"></i></div></div><div class="reason-line">${truthBadge('inference')}<span>La soluzione riutilizzabile sembra il primo passo con rischio minore.</span></div><div class="actions"><button class="secondary-action" type="button" data-module="maikore">Apri MaiKore</button><span class="spacer"></span><button class="primary-action" type="button" data-action="to-boundaries" ${state.paused ? 'disabled' : ''}>Regola e prepara la prova <span class="arrow">→</span></button></div></aside></div>`;
   }
 
   function modeSwitch() {
@@ -184,18 +184,33 @@
       <aside class="flow-inspector"><span class="overline">COSA PUÒ TORNARE</span><h2>Contributo selettivo</h2><p class="small-copy">I dati personali e l’intenzione completa restano esclusi.</p><div class="selected-flow"><span>FLUSSO ISPEZIONATO</span><strong>${inspectedFlow[0]}</strong><p>${inspectedFlow[1]}</p></div>${options}<div class="final-choice"><p class="small-copy">Consenso OSHI: <strong>${state.share ? 'attivo per la selezione' : 'disattivato · bozza privata'}</strong></p><div class="actions"><button class="secondary-action" type="button" data-action="keep-draft">Mantieni bozza</button><button class="primary-action" type="button" data-action="contribute">${state.completed ? 'Contributo registrato ✓' : 'Contribuisci alla demo'} </button><button class="secondary-action" type="button" data-action="new-experiment">Nuova prova</button></div></div></aside></div>`;
   }
 
+  function persistentEnvironment() {
+    const strategy = { reuse: 'Riuso', adapt: 'Combinazione', build: 'Costruzione' }[state.strategy];
+    const surface = {
+      environment: 'Capacità', boundaries: 'Governance', experiment: 'Prova', authority: 'Autorità',
+      result: 'Evidenza', value: 'Economia', contribution: 'Contributo'
+    }[state.stage] || 'Capacità';
+    return `<section class="environment-bar" aria-label="Stato persistente dell’ambiente"><div><span>AMBIENTE ATTIVO</span><strong>6 capacità assemblate</strong></div><dl><div><dt>Strategia</dt><dd>${strategy}</dd></div><div><dt>Superficie corrente</dt><dd>${surface}</dd></div><div><dt>Controllo</dt><dd>${state.paused ? 'In pausa' : modeLabels[state.mode]}</dd></div></dl><div class="environment-actions"><button type="button" data-stage="environment">Apri capacità</button><button type="button" data-module="maikore">Interroga MaiKore</button></div></section>`;
+  }
+
   function renderWorkspace() {
     const views = { intention: renderIntention, environment: renderEnvironment, boundaries: renderBoundaries, experiment: renderExperiment, authority: renderAuthority, result: renderResult, value: renderValue, contribution: renderContribution };
-    workspace.innerHTML = (views[state.stage] || renderIntention)();
+    const persistent = state.ready && state.stage !== 'intention' ? persistentEnvironment() : '';
+    workspace.innerHTML = persistent + (views[state.stage] || renderIntention)();
   }
 
   function renderNavigation() {
-    const currentIndex = stageIds.indexOf(state.stage);
-    document.querySelector('#journey-progress').textContent = state.ready ? `${Math.max(1, currentIndex + 1)} di ${stageIds.length} · stato ispezionabile` : 'Pronto per iniziare';
-    document.querySelector('#journey-nav').innerHTML = content.stages.map((stage, index) => {
-      const visited = state.visited.includes(stage.id);
-      return `<button type="button" class="journey-step" data-stage="${stage.id}" data-visited="${visited}" ${visited ? '' : 'disabled'} ${state.stage === stage.id ? 'aria-current="step"' : ''}><span class="step-mark">${visited && index < currentIndex ? '✓' : '·'}</span><span>${stage.label}</span><small>${stage.system}</small></button>`;
-    }).join('');
+    const spaces = state.ready ? [
+      { id: 'environment', label: 'Capacità', note: 'Ambiente', mark: '◎', available: true },
+      { id: 'experiment', label: 'Prova attiva', note: 'Lab', mark: '△', available: state.visited.includes('experiment') },
+      { id: 'result', label: 'Evidenze', note: 'Risultati', mark: '✓', available: state.ran },
+      { id: 'value', label: 'Economia', note: 'Contestuale', mark: '¤', available: state.visited.includes('value') },
+      { id: 'contribution', label: 'Contributi', note: 'Mother layer', mark: '↗', available: state.visited.includes('contribution') }
+    ] : [{ id: 'intention', label: 'Definisci intenzione', note: 'Inizio', mark: '○', available: true }];
+    const visible = spaces.filter(space => space.available);
+    const currentSpace = state.stage === 'authority' ? 'experiment' : state.stage === 'boundaries' ? 'environment' : state.stage;
+    document.querySelector('#journey-progress').textContent = state.ready ? `${visible.length} ${visible.length === 1 ? 'superficie attiva' : 'superfici attive'}` : 'Ambiente da attivare';
+    document.querySelector('#journey-nav').innerHTML = visible.map(space => `<button type="button" class="journey-step" data-stage="${space.id}" data-visited="true" ${currentSpace === space.id ? 'aria-current="page"' : ''}><span class="step-mark">${space.mark}</span><span>${space.label}</span><small>${space.note}</small></button>`).join('');
   }
 
   function renderSystems() {
@@ -221,6 +236,9 @@
 
   function renderChrome() {
     document.querySelector('#active-intention strong').textContent = state.goal || 'Nessuna intenzione definita';
+    document.querySelector('#rail-intention-copy').textContent = state.goal || 'Non ancora definita';
+    document.querySelector('#rail-history-count').textContent = `${state.activity.length} ${state.activity.length === 1 ? 'evento locale' : 'eventi locali'}`;
+    document.querySelector('#rail-history-note').textContent = state.ran ? `Ultimo esito: ${state.result?.label || content.experimentOutcomes[state.demoOutcome].label}` : 'Nessun risultato';
     renderNavigation(); renderSystems(); renderActivity(); renderControl();
   }
 
@@ -250,10 +268,10 @@
     const tab = state.moduleTab || 'controls';
     const tabs = [['controls','Controlli'],['permissions','Permessi'],['history','Attività']];
     let body = '';
-    if (tab === 'controls') body = `<div class="module-section"><h3>Automazione</h3>${modeSwitch()}${toggleRow('explanations','Spiegazioni richieste','Ogni proposta mostra ragione e stato di verità.')}${toggleRow('memory','Contesto di sessione','Memoria volatile, controllata dalla persona.')}${toggleRow('share','Contributo selettivo','Soltanto elementi scelti, mai l’intenzione personale.')}</div>`;
+    if (tab === 'controls') body = `<div class="module-section"><h3>Automazione</h3>${modeSwitch()}${toggleRow('explanations','Spiegazioni richieste','Ogni proposta mostra ragione e stato di verità.')}${toggleRow('memory','Contesto di sessione','Memoria volatile, controllata dalla persona.')}${toggleRow('share','Contributo selettivo','Soltanto elementi scelti, mai l’intenzione personale.')}<div class="setting-row threshold-row"><div><strong>Soglia di approvazione</strong><small>Oltre la soglia, TheBossKey richiede una decisione esplicita.</small></div><div><input type="range" min="0" max="100" step="10" value="${state.approvalThreshold}" data-setting="approvalThreshold" aria-label="Soglia di approvazione"><strong>${state.approvalThreshold}</strong></div></div></div>`;
     if (tab === 'permissions') body = `<div class="module-section"><h3>Confini effettivi</h3><table class="permission-table"><thead><tr><th>AZIONE</th><th>STATO</th><th>AUTORITÀ</th></tr></thead><tbody><tr><td>Preparare una proposta</td><td>${state.paused ? 'Bloccata' : 'Consentita'}</td><td>OSHI</td></tr><tr><td>Eseguire la prova</td><td>${state.authorized ? 'Una volta' : 'Richiesta'}</td><td>TheBossKey</td></tr><tr><td>Spendere denaro</td><td>${state.blockPurchase ? 'Vietata' : 'Richiede approvazione'}</td><td>Persona</td></tr><tr><td>Pubblicare</td><td>${state.blockPublish ? 'Vietata' : 'Richiede approvazione'}</td><td>Persona</td></tr><tr><td>Contribuire evidenze</td><td>${state.share ? 'Selezionabile' : 'Privata'}</td><td>Persona</td></tr></tbody></table><h3>Azioni vietate</h3>${toggleRow('blockPurchase','Blocca acquisti','Nessun acquisto reale o simulato come avvenuto.')}${toggleRow('blockPublish','Blocca pubblicazione','Nessuna pubblicazione o contatto esterno.')}${toggleRow('blockPersonalData','Blocca dati personali','L’intenzione personale non lascia questa pagina.')}</div>`;
     if (tab === 'history') body = `<div class="module-section"><h3>Registro locale</h3>${state.activity.map(item => `<div class="mini-metric"><span>${escapeHTML(item.text)}</span><strong>${item.system}</strong></div>`).join('')}</div>`;
-    return `${moduleHeader('oshi')}<div class="module-tabs">${tabs.map(([id,label]) => `<button type="button" data-module-tab="${id}" aria-pressed="${tab === id}">${label}</button>`).join('')}</div>${body}<div class="dialog-actions"><button class="secondary-action" type="button" data-action="override-manual">Override manuale</button><button class="danger-action" type="button" data-action="toggle-pause">${state.paused ? 'Riprendi' : 'Pausa'}</button><button class="danger-action" type="button" data-action="revoke">Revoca</button><button class="primary-action" type="button" data-action="close-dialog">Applica e chiudi</button></div>`;
+    return `${moduleHeader('oshi')}<div class="module-tabs">${tabs.map(([id,label]) => `<button type="button" data-module-tab="${id}" aria-pressed="${tab === id}">${label}</button>`).join('')}</div>${body}<div class="dialog-actions"><button class="secondary-action" type="button" data-action="override-manual">Override manuale</button><button class="danger-action" type="button" data-action="toggle-pause">${state.paused ? 'Riprendi' : 'Pausa'}</button><button class="danger-action" type="button" data-action="revoke">Revoca</button>${state.ready ? '<button class="primary-action" type="button" data-action="to-experiment">Prepara prova</button>' : '<button class="primary-action" type="button" data-action="close-dialog">Applica e chiudi</button>'}</div>`;
   }
 
   function labModule() {
@@ -267,6 +285,8 @@
   }
 
   function bosskeyModule() {
+    const identity = state.context === 'team' ? 'Responsabile del team · sessione locale' : 'Tu · sessione locale';
+    if (state.moduleTab === 'request') return `${moduleHeader('bosskey')}<div class="authority-context"><span class="authority-principle">CAPACITÀ ≠ AUTORITÀ</span><h3>${state.denied ? 'Richiesta negata' : 'Autorizzazione richiesta nel contesto'}</h3><p>JasVerse Lab vuole eseguire una prova dimostrativa. La decisione vale soltanto per questa operazione.</p><dl><div><dt>CHI DECIDE</dt><dd>${identity}</dd></div><div><dt>COSA</dt><dd>Eseguire la prova JV-DEMO-01</dd></div><div><dt>PERCHÉ</dt><dd>Verificare l’ipotesi con dati controllati</dd></div><div><dt>AMBITO</dt><dd>${state.trialSize} posti · metrica “${state.metric}”</dd></div><div><dt>DURATA</dt><dd>Una sola esecuzione</dd></div><div><dt>EFFETTI ESTERNI</dt><dd>0 · acquisti, pubblicazione e contatti bloccati</dd></div></dl><p class="authority-note compact">Nessuna autenticazione reale. Approvazione e negazione modificano soltanto questa simulazione locale.</p></div><div class="dialog-actions"><button class="secondary-action" type="button" data-action="edit-experiment">Modifica protocollo</button><button class="danger-action" type="button" data-action="deny-authority">Nega</button><button class="primary-action" type="button" data-action="approve-authority">Approva una volta</button></div>`;
     return `${moduleHeader('bosskey')}<div class="module-section"><h3>Autorità della sessione</h3><div class="mini-metric"><span>Identità</span><strong>TU · LOCALE</strong></div><div class="mini-metric"><span>Permesso prova</span><strong>${state.authorized ? 'ATTIVO · UNA VOLTA' : 'NON ATTIVO'}</strong></div><div class="mini-metric"><span>Azioni esterne</span><strong>0 CONSENTITE</strong></div><div class="mini-metric"><span>Revoca</span><strong>IMMEDIATA</strong></div><p>Capacità e autorità restano separate. Questa ricevuta non autentica una persona reale.</p></div><div class="dialog-actions"><button class="danger-action" type="button" data-action="revoke">Revoca ogni delega</button></div>`;
   }
 
@@ -317,12 +337,12 @@
   }
 
   function handleAction(action) {
-    if (action === 'to-boundaries') { visit('boundaries'); addActivity('OSHI','Confini pronti per essere regolati.'); goStage('boundaries'); }
-    if (action === 'to-experiment') { visit('experiment'); addActivity('JasVerse Lab','Protocollo di prova creato come ipotesi modificabile.'); goStage('experiment'); }
-    if (action === 'request-authority') { visit('authority'); state.denied = false; addActivity('TheBossKey','Richiesta limitata a una prova; nessuna azione esterna.'); goStage('authority'); }
-    if (action === 'approve-authority') { state.authorized = true; state.denied = false; state.revoked = false; addActivity('TheBossKey','Autorizzazione monouso concessa.'); closeDialog(); visit('experiment'); goStage('experiment'); notify('Autorizzazione valida per una sola prova simulata.'); }
-    if (action === 'deny-authority') { state.authorized = false; state.denied = true; addActivity('TheBossKey','Richiesta negata; il protocollo resta una bozza.'); render(); notify('Richiesta negata. Nessuna prova è stata avviata.'); }
-    if (action === 'edit-experiment') { visit('experiment'); goStage('experiment'); }
+    if (action === 'to-boundaries') { visit('boundaries'); addActivity('OSHI','Governance aperta nel contesto dell’ambiente.'); openModule('oshi','controls'); }
+    if (action === 'to-experiment') { closeDialog(); visit('experiment'); addActivity('JasVerse Lab','Protocollo di prova creato come ipotesi modificabile.'); goStage('experiment'); }
+    if (action === 'request-authority') { visit('authority'); state.denied = false; state.authorityOrigin = state.stage; addActivity('TheBossKey','Richiesta contestuale limitata a una prova; nessuna azione esterna.'); openModule('bosskey','request'); }
+    if (action === 'approve-authority') { state.authorized = true; state.denied = false; state.revoked = false; addActivity('TheBossKey','Autorizzazione monouso concessa.'); closeDialog(); visit('experiment'); goStage(state.authorityOrigin || 'experiment'); notify('Autorizzazione valida per una sola prova simulata.'); }
+    if (action === 'deny-authority') { state.authorized = false; state.denied = true; addActivity('TheBossKey','Richiesta negata; il protocollo resta una bozza.'); closeDialog(); goStage(state.authorityOrigin || 'experiment'); notify('Richiesta negata. Nessuna prova è stata avviata.'); }
+    if (action === 'edit-experiment') { closeDialog(); visit('experiment'); goStage('experiment'); }
     if (action === 'run-experiment') {
       if (!state.authorized || state.paused) { notify(state.paused ? 'OSHI ha messo in pausa l’assistenza.' : 'Serve un’autorizzazione TheBossKey valida.'); return; }
       state.result = { ...content.experimentOutcomes[state.demoOutcome] }; state.ran = true; state.authorized = false;

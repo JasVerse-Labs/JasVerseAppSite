@@ -8,9 +8,9 @@
   <meta name="theme-color" content="#152025">
   <title>JASVERSE — THE ORACOLO V2 · Ambiente operativo</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/v2.css?v=2">
-  <script src="assets/js/content.it.js?v=2" defer></script>
-  <script src="assets/js/app.js?v=2" defer></script>
+  <link rel="stylesheet" href="assets/css/v2.css?v=2.1">
+  <script src="assets/js/content.it.js?v=2.1" defer></script>
+  <script src="assets/js/app.js?v=2.1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#workspace">Vai allo spazio operativo</a>
@@ -21,22 +21,33 @@
         <span><b>JASVERSE</b><small>THE ORACOLO · V2</small></span>
       </a>
       <div class="active-intention" id="active-intention">
-        <span>INTENZIONE ATTIVA</span>
+        <span>INTENZIONE ATTIVA <button type="button" class="intention-return" data-stage="intention">Modifica</button></span>
         <strong>Nessuna intenzione definita</strong>
       </div>
       <div class="app-status">
         <span class="simulation-pill"><i aria-hidden="true"></i> SIMULAZIONE LOCALE</span>
+        <button class="quiet-button" type="button" data-module="oshi">OSHI</button>
         <button class="quiet-button" type="button" data-action="open-about">Informazioni</button>
         <button class="quiet-button" type="button" data-action="open-reset">Azzera</button>
       </div>
     </header>
 
-    <aside class="journey-rail" aria-label="Percorso operativo">
+    <aside class="journey-rail" aria-label="Ambiente JasVerse">
+      <section class="rail-intention" aria-labelledby="rail-intention-title">
+        <span id="rail-intention-title">INTENZIONE CORRENTE</span>
+        <strong id="rail-intention-copy">Non ancora definita</strong>
+        <button type="button" data-stage="intention">Modifica intenzione</button>
+      </section>
       <div class="rail-heading">
-        <span>PERCORSO</span>
+        <span>LAVORO</span>
         <strong id="journey-progress">Pronto per iniziare</strong>
       </div>
-      <nav id="journey-nav"></nav>
+      <nav id="journey-nav" aria-label="Spazi di lavoro"></nav>
+      <section class="rail-history" aria-labelledby="rail-history-title">
+        <span id="rail-history-title">ATTIVITÀ / RISULTATI</span>
+        <strong id="rail-history-count">1 evento locale</strong>
+        <small id="rail-history-note">Nessun risultato</small>
+      </section>
       <section class="human-anchor" aria-label="Stato del controllo umano">
         <div class="human-icon" aria-hidden="true">TU</div>
         <div><span>CONTROLLO UMANO</span><strong id="human-control-state">Presente</strong></div>
