@@ -1,36 +1,46 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="An independent, simulated exploration of human capability. JASVERSE — THE ORACOLO concept prototype.">
+  <meta name="description" content="Un’esplorazione indipendente e simulata delle capacità umane. Prototipo concettuale JASVERSE — THE ORACOLO.">
   <meta name="theme-color" content="#182d32">
-  <title>JASVERSE — THE ORACOLO · Concept</title>
+  <title>JASVERSE — THE ORACOLO · Prototipo</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="assets/css/oracolo.css">
-  <script src="assets/js/oracolo.js" defer></script>
+  <link rel="stylesheet" href="assets/css/oracolo.css?v=language-1">
+  <script src="locales/catalog.js?v=language-1" defer></script>
+  <script src="locales/it.js?v=language-1" defer></script>
+  <script src="locales/en.js?v=language-1" defer></script>
+  <script src="locales/es.js?v=language-1" defer></script>
+  <script src="locales/fr.js?v=language-1" defer></script>
+  <script src="locales/de.js?v=language-1" defer></script>
+  <script src="locales/pt-BR.js?v=language-1" defer></script>
+  <script src="locales/zh-CN.js?v=language-1" defer></script>
+  <script src="locales/hi-IN.js?v=language-1" defer></script>
+  <script src="assets/js/i18n.js?v=language-1" defer></script>
+  <script src="assets/js/oracolo.js?v=language-1" defer></script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to workspace</a>
+  <a class="skip" href="#main" data-i18n="Skip to workspace">Vai allo spazio di lavoro</a>
   <aside class="rail">
-    <a class="brand" href="#possibility" aria-label="JasVerse, possibility workspace"><span class="brand-symbol" aria-hidden="true">◎</span><span>JASVERSE<small>THE ORACOLO</small></span></a>
-    <div class="rail-caption">A FIELD OF POSSIBILITY</div>
-    <nav aria-label="Main navigation">
-      <a href="#possibility" data-nav="possibility"><span>01</span> Your possibility <b>↗</b></a>
-      <a href="#lab" data-nav="lab"><span>02</span> The proving ground <b>↗</b></a>
-      <a href="#ecosystem" data-nav="ecosystem"><span>03</span> The living system <b>↗</b></a>
-      <a href="#value" data-nav="value"><span>04</span> Value in motion <b>↗</b></a>
+    <a class="brand" href="#possibility" aria-label="JasVerse, spazio delle possibilità" data-i18n-aria="JasVerse, possibility workspace"><span class="brand-symbol" aria-hidden="true">◎</span><span>JASVERSE<small>THE ORACOLO</small></span></a>
+    <div class="rail-caption" data-i18n="A FIELD OF POSSIBILITY">UNO SPAZIO DI POSSIBILITÀ</div>
+    <nav aria-label="Navigazione principale" data-i18n-aria="Main navigation">
+      <a href="#possibility" data-nav="possibility"><span>01</span> <span data-i18n="Your possibility">Le tue possibilità</span> <b>↗</b></a>
+      <a href="#lab" data-nav="lab"><span>02</span> <span data-i18n="The proving ground">Il banco di prova</span> <b>↗</b></a>
+      <a href="#ecosystem" data-nav="ecosystem"><span>03</span> <span data-i18n="The living system">L’ecosistema vivente</span> <b>↗</b></a>
+      <a href="#value" data-nav="value"><span>04</span> <span data-i18n="Value in motion">Il valore in circolo</span> <b>↗</b></a>
     </nav>
-    <div class="rail-bottom"><p>Greater capability.<br>Still entirely human.</p><button class="sovereignty-trigger" data-action="sovereignty"><span aria-hidden="true">◇</span> Your boundaries <span>↗</span></button><small>CONCEPT EDITION / 01<br>No account. No connected engines.</small></div>
+    <div class="rail-bottom"><p><span data-i18n="Greater capability.">Più capacità.</span><br><span data-i18n="Still entirely human.">Sempre umani.</span></p><button class="sovereignty-trigger" data-action="sovereignty"><span aria-hidden="true">◇</span> <span data-i18n="Your boundaries">I tuoi limiti</span> <span>↗</span></button><small><span data-i18n="CONCEPT EDITION / 01">EDIZIONE CONCETTUALE / 01</span><br><span data-i18n="No account. No connected engines.">Nessun account. Nessun motore collegato.</span></small></div>
   </aside>
   <div class="shell">
-    <header class="topbar"><div class="edition"><span class="prototype">LIVE CONCEPT</span><span>All journeys & outcomes are simulated</span></div><div class="top-actions"><button class="text-button mobile-boundaries" data-action="sovereignty">Your boundaries ◇</button><button class="text-button" data-action="reset">Reset experience ↺</button></div></header>
+    <header class="topbar"><div class="edition"><span class="prototype" data-i18n="LIVE CONCEPT">PROTOTIPO INTERATTIVO</span><span data-i18n="All journeys & outcomes are simulated">Tutti i percorsi e i risultati sono simulati</span></div><div class="top-actions"><label class="locale-control"><span aria-hidden="true">◎</span><span class="locale-label" data-i18n="Language">Lingua</span><select id="locale-select" data-locale-menu aria-label="Scegli la lingua" data-i18n-aria="Choose language"><option value="it" lang="it">IT · Italiano</option><option value="en" lang="en">EN · English</option></select></label><button class="text-button mobile-boundaries" data-action="sovereignty" data-i18n="Your boundaries ◇">I tuoi limiti ◇</button><button class="text-button" data-action="reset" data-i18n="Reset experience ↺">Ricomincia ↺</button></div></header>
     <main id="main" tabindex="-1"></main>
-    <footer><span>JASVERSE / THE ORACOLO</span><span>Your possibility is the starting point. Your agency is the constant.</span><button class="text-button" data-action="about">About this concept ↗</button></footer>
+    <footer><span>JASVERSE / THE ORACOLO</span><span data-i18n="Your possibility is the starting point. Your agency is the constant.">Si parte dalle tue possibilità. Il controllo resta sempre tuo.</span><button class="text-button" data-action="about" data-i18n="About this concept ↗">Informazioni sul prototipo ↗</button></footer>
   </div>
-  <dialog id="detail" aria-labelledby="dialog-title"><div id="dialog-content"></div><form method="dialog"><button class="dialog-close" aria-label="Close dialog">×</button></form></dialog>
+  <dialog id="detail" aria-labelledby="dialog-title"><div id="dialog-content"></div><form method="dialog"><button class="dialog-close" aria-label="Chiudi finestra" data-i18n-aria="Close dialog">×</button></form></dialog>
   <div class="toast" role="status" id="status"></div>
-  <noscript><p class="noscript">This interactive concept needs JavaScript. It uses only local, fictional data and makes no AI or backend calls.</p></noscript>
+  <noscript><p class="noscript">Questo prototipo interattivo richiede JavaScript. Usa soltanto dati fittizi locali, senza chiamate a servizi di IA o sistemi esterni.</p></noscript>
 </body>
 </html>
